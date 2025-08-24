@@ -1,0 +1,20 @@
+@use "../foundation/all" as *;
+.skeleton {
+  width: 100%;
+  height: 100%;
+  @include generate-pulse-animation();
+  &--display-text {
+    @include flexbox(_, _, $space-50, column);
+  }
+
+  &--display-text--line {
+    background-color: $sds-color-bg-surface-secondary;
+    border-radius: $space-60;
+    height: $space-40;
+    @include flexbox();
+  }
+  @include generate-skeleton-display-text-size();
+  &--display-text--line-last {
+    width: 60%;
+  }
+}

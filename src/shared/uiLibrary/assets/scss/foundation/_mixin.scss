@@ -1,0 +1,2236 @@
+/*********************************
+* TABLE OF CONTENT
+**********************************/
+
+/*********************************
+**********************************
+**** - ✅ IMPORT ESSENTIAL FILE
+**** - ✅ MEDIA QUERIES 
+**** - ✅ FONT 
+**** - ✅ FONT WEIGHT 
+**** - ✅ WORD BREAK 
+**** - ✅ TEXT COLOR 
+**** - ✅ TEXT DECORATION 
+**** - ✅ TEXT HEADING STYLE 
+**** - ✅ GENERATE HEADING H6 
+**** - ✅ GENERATE HEADING H5 
+**** - ✅ GENERATE HEADING H4 
+**** - ✅ GENERATE HEADING H3 
+**** - ✅ GENERATE HEADING H2 
+**** - ✅ GENERATE HEADING H1 
+**** - ✅ GENERATE HEADING 
+**** - ✅ TEXT BODY STYLE 
+**** - ✅ GENERATE BODY TEXT 
+**** - ✅ GENERATE SPAN TEXT 
+**** - ✅ GENERATE STRONG TEXT 
+**** - ✅ GENERATE A TEXT 
+**** - ✅ TEXT TRUNCATE
+**** - ✅ TEXT ALIGNMENT
+**** - ✅ BODY TEXT SIZES
+**** - ✅ BUTTON - [button related mixin]
+**** - ✅ INPUT RELATED
+**** - ✅ TEXT AREA RELATED
+**** - ✅ BADGE
+**** - ✅ TAG
+**** - ✅ SWITCH
+**** - ✅ CHECKBOX
+**** - ✅ RADIO
+**** - ✅ POSITION
+**** - ✅ BORDER - [border related mixin]
+**** - ✅ BACKGROUND
+**** - ✅ PADDING
+**** - ✅ MARGIN
+**** - ✅ OVERFLOW
+**** - ✅ SHADOW
+**** - ✅ FLEX BOX - [flex related mixin ]
+**** - ✅ GRID - [grid related mixin]
+**** - ✅ MODAL
+**** - ✅ PULSE ANIMATION
+**** - ✅ SKELETON
+**** - ✅ TABLE
+**** - ✅ PAGINATION
+**** - ✅ DIVIDER
+**** - ✅ SNACKBAR
+**** - ✅ USER AVATAR
+**** - ✅ SOPPIYA ICON
+**** - ✅ ORDER
+**** - ✅ DISPLAY
+***********************************
+***********************************/
+
+/*************************
+* IMPORT CSS FILES
+*************************/
+@use "./typography" as *;
+@use "./variables" as *;
+@use "./color" as *;
+@use "sass:map";
+@mixin apply-cursor-pointer {
+  @include laptop {
+    cursor: pointer;
+  }
+}
+
+/*************************
+* MEDIA QUERIES
+*************************/
+@mixin mobile {
+  @media (min-width: map.get($breakpoints-map, "sm")) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (min-width: map.get($breakpoints-map, "md")) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: map.get($breakpoints-map, "lg")) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: map.get($breakpoints-map, "xl")) {
+    @content;
+  }
+}
+
+/*************************
+* FONT MIXIN
+*************************/
+@mixin font($size: _, $weight: _, $lineHeight: _) {
+  @if ($size != _) {
+    font-size: $size;
+  }
+  @if ($weight != _) {
+    font-weight: $weight;
+  }
+  @if ($lineHeight != _) {
+    line-height: $lineHeight;
+  }
+}
+
+/*************************
+* FONT WEIGHT
+*************************/
+@mixin generate-font-weight {
+  @each $key, $value in $font-weight {
+    &.font-weight--#{"" + $key} {
+      font-weight: $value !important;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $font-weight {
+        &.#{$prefix}\:font-weight--#{"" + $key} {
+          font-weight: $value !important;
+        }
+      }
+    }
+  }
+}
+/*************************
+* WORD BREAK MIXIN
+*************************/
+@mixin generate-word-break {
+  @each $key, $value in $word-break-map {
+    &.word-break--#{"" + $key} {
+      overflow-wrap: $value;
+      word-break: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $word-break-map {
+        &.#{$prefix}\: &.word-break--#{"" + $key} {
+          overflow-wrap: $value;
+          word-break: $value;
+        }
+      }
+    }
+  }
+}
+/*************************
+* TEXT COLOR MIXIN
+*************************/
+@mixin generate-text-color {
+  @each $name, $color in $text-colors {
+    &.text--#{"" + $name} {
+      color: #{$color};
+
+      &.text-hover--hover:hover {
+        color: var(--sds-color-text-#{$name}-hover);
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $name, $color in $text-colors {
+        &.#{$prefix}\:text--#{"" + $name} {
+          color: #{$color};
+
+          &.text-hover--hover:hover {
+            color: var(--sds-color-text-#{$name}-hover);
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* TEXT DECORATION MIXIN
+*************************/
+@mixin generate-text-decoration {
+  @each $key, $value in $text-decoration-map {
+    &.decoration--#{"" + $key} {
+      text-decoration: #{$value};
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $text-decoration-map {
+        &.#{$prefix}\:decoration--#{"" + $key} {
+          text-decoration: #{$value};
+        }
+      }
+    }
+  }
+}
+/*************************
+* TEXT HEADING STYLE MIXIN
+*************************/
+
+@mixin h1--xs {
+  @include font($sds-text-heading-2xl-font-size, _, $sds-text-heading-2xl-line-height);
+}
+@mixin h1--lg {
+  @include font($sds-text-heading-3xl-font-size, _, $sds-text-heading-3xl-line-height);
+}
+@mixin h2--xs {
+  @include font($sds-text-heading-xl-font-size, $sds-text-heading-xl-font-weight, $sds-text-heading-xl-line-height);
+}
+@mixin h2--lg {
+  @include font($sds-text-heading-2xl-font-size, _, $sds-text-heading-2xl-line-height);
+}
+@mixin h3--xs {
+  @include font($sds-text-heading-lg-font-size, _, $sds-text-heading-lg-line-height);
+}
+@mixin h3--lg {
+  @include font($sds-text-heading-xl-font-size, _, $sds-text-heading-xl-line-height);
+}
+@mixin h4--xs {
+  @include font($sds-text-heading-md-font-size, _, $sds-text-heading-md-line-height);
+}
+@mixin h4--lg {
+  @include font($sds-text-heading-lg-font-size, _, $sds-text-heading-lg-line-height);
+}
+@mixin h5--xs {
+  @include font($sds-text-heading-sm-font-size, _, $sds-text-heading-sm-line-height);
+}
+@mixin h5--lg {
+  @include font($sds-text-heading-md-font-size, _, $sds-text-heading-md-line-height);
+}
+@mixin h6--xs {
+  @include font($sds-text-heading-xsm-font-size, _, $sds-text-heading-xsm-line-height);
+}
+@mixin h6--lg {
+  @include font($sds-text-heading-sm-font-size, _, $sds-text-heading-sm-line-height);
+}
+
+$heading-text-list: xs, lg;
+/*************************
+* GENERATE HEADING H1
+*************************/
+@mixin generate-h6 {
+  @each $key in $heading-text-list {
+    &.text-h6--#{$key} {
+      @if $key == xs {
+        @include h6--xs();
+      } @else if $key == lg {
+        @include h6--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $heading-text-list {
+        &.#{$prefix}\:text-h6--#{$key} {
+          @if $key == xs {
+            @include h6--xs();
+          } @else if $key == lg {
+            @include h6--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE HEADING H5
+*************************/
+@mixin generate-h5 {
+  @each $key in $heading-text-list {
+    &.text-h5--#{$key} {
+      @if $key == xs {
+        @include h5--xs();
+      } @else if $key == lg {
+        @include h5--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $heading-text-list {
+        &.#{$prefix}\:text-h5--#{$key} {
+          @if $key == xs {
+            @include h5--xs();
+          } @else if $key == lg {
+            @include h5--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE HEADING H4
+*************************/
+@mixin generate-h4 {
+  @each $key in $heading-text-list {
+    &.text-h4--#{$key} {
+      @if $key == xs {
+        @include h4--xs();
+      } @else if $key == lg {
+        @include h4--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $heading-text-list {
+        &.#{$prefix}\:text-h4--#{$key} {
+          @if $key == xs {
+            @include h4--xs();
+          } @else if $key == lg {
+            @include h4--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE HEADING H3
+*************************/
+@mixin generate-h3 {
+  @each $key in $heading-text-list {
+    &.text-h3--#{$key} {
+      @if $key == xs {
+        @include h3--xs();
+      } @else if $key == lg {
+        @include h3--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $heading-text-list {
+        &.#{$prefix}\:text-h3--#{$key} {
+          @if $key == xs {
+            @include h3--xs();
+          } @else if $key == lg {
+            @include h3--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE HEADING H2
+*************************/
+@mixin generate-h2 {
+  @each $key in $heading-text-list {
+    &.text-h2--#{$key} {
+      @if $key == xs {
+        @include h2--xs();
+      } @else if $key == lg {
+        @include h2--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $heading-text-list {
+        &.#{$prefix}\:text-h2--#{$key} {
+          @if $key == xs {
+            @include h2--xs();
+          } @else if $key == lg {
+            @include h2--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE HEADING H1
+*************************/
+@mixin generate-h1 {
+  @each $key in $heading-text-list {
+    &.text-h1--#{$key} {
+      @if $key == xs {
+        @include h1--xs();
+      } @else if $key == lg {
+        @include h1--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $heading-text-list {
+        &.#{$prefix}\:text-h1--#{$key} {
+          @if $key == xs {
+            @include h1--xs();
+          } @else if $key == lg {
+            @include h1--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE HEADING
+*************************/
+@mixin generate-heading {
+  @include generate-h1();
+  @include generate-h2();
+  @include generate-h3();
+  @include generate-h4();
+  @include generate-h5();
+  @include generate-h6();
+}
+/*************************
+* TEXT BODY STYLE MIXIN
+*************************/
+$body-text-list: xs, sm, md, lg;
+
+@mixin p--lg {
+  @include font($sds-text-body-lg-font-size, _, $sds-text-body-lg-line-height);
+}
+@mixin p--md {
+  @include font($sds-text-body-md-font-size, _, $sds-text-body-md-line-height);
+}
+@mixin p--sm {
+  @include font($sds-text-body-sm-font-size, _, $sds-text-body-sm-line-height);
+}
+@mixin p--xs {
+  @include font($sds-text-body-xs-font-size, _, $sds-text-body-xs-line-height);
+}
+/*************************
+* GENERATE BODY TEXT
+*************************/
+@mixin generate-body-text {
+  @each $key in $body-text-list {
+    &.text-p--#{$key} {
+      @if $key == xs {
+        @include p--xs();
+      } @else if $key == sm {
+        @include p--sm();
+      } @else if $key == md {
+        @include p--md();
+      } @else if $key == lg {
+        @include p--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $body-text-list {
+        &.#{$prefix}\:text-p--#{$key} {
+          @if $key == xs {
+            @include p--xs();
+          } @else if $key == sm {
+            @include p--sm();
+          } @else if $key == md {
+            @include p--md();
+          } @else if $key == lg {
+            @include p--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE SPAN TEXT
+*************************/
+@mixin generate-span-text {
+  @each $key in $body-text-list {
+    &.text-span--#{$key} {
+      @if $key == xs {
+        @include p--xs();
+      } @else if $key == sm {
+        @include p--sm();
+      } @else if $key == md {
+        @include p--md();
+      } @else if $key == lg {
+        @include p--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $body-text-list {
+        &.#{$prefix}\:text-span--#{$key} {
+          @if $key == xs {
+            @include p--xs();
+          } @else if $key == sm {
+            @include p--sm();
+          } @else if $key == md {
+            @include p--md();
+          } @else if $key == lg {
+            @include p--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE STRONG TEXT
+*************************/
+@mixin generate-strong-text {
+  @each $key in $body-text-list {
+    &.text-strong--#{$key} {
+      font-weight: 550 !important;
+      @if $key == xs {
+        @include p--xs();
+      } @else if $key == sm {
+        @include p--sm();
+      } @else if $key == md {
+        @include p--md();
+      } @else if $key == lg {
+        @include p--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $body-text-list {
+        &.#{$prefix}\:text-strong--#{$key} {
+          @if $key == xs {
+            @include p--xs();
+          } @else if $key == sm {
+            @include p--sm();
+          } @else if $key == md {
+            @include p--md();
+          } @else if $key == lg {
+            @include p--lg();
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* GENERATE A TEXT
+*************************/
+@mixin generate-a-text {
+  @each $key in $body-text-list {
+    &.text-a--#{$key} {
+      @if $key == xs {
+        @include p--xs();
+      } @else if $key == sm {
+        @include p--sm();
+      } @else if $key == md {
+        @include p--md();
+      } @else if $key == lg {
+        @include p--lg();
+      }
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key in $body-text-list {
+        &.#{$prefix}\:text-a--#{$key} {
+          @if $key == xs {
+            @include p--xs();
+          } @else if $key == sm {
+            @include p--sm();
+          } @else if $key == md {
+            @include p--md();
+          } @else if $key == lg {
+            @include p--lg();
+          }
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* TEXT TRUNCATE MIXIN
+*************************/
+@mixin generate-text-truncate {
+  @each $key, $value in $text-truncate-map {
+    &.truncate--#{"" + $key} {
+      display: -webkit-box;
+      -webkit-line-clamp: $value;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $text-truncate-map {
+        &.#{$prefix}\: &.truncate--#{"" + $key} {
+          display: -webkit-box;
+          -webkit-line-clamp: $value;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}
+/*************************
+* TEXT ALIGNMENT MIXIN
+*************************/
+@mixin generate-text-align {
+  @each $key, $value in $text-align-map {
+    &.text-align--#{$key} {
+      text-align: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $text-align-map {
+        &.#{$prefix}\:text-align--#{$key} {
+          text-align: $value;
+        }
+      }
+    }
+  }
+}
+/*************************
+* BODY TEXT SIZES MIXIN
+*************************/
+@mixin text-body-sm {
+  font-size: $sds-text-body-sm-font-size;
+  font-weight: $sds-text-body-sm-font-weight;
+  line-height: $sds-text-body-sm-line-height;
+  font-family: $sds-text-body-sm-font-family;
+}
+
+@mixin text-body-md {
+  font-size: $sds-text-body-md-font-size;
+  font-weight: $sds-text-body-md-font-weight;
+  line-height: $sds-text-body-md-line-height;
+  font-family: $sds-text-body-md-font-family;
+}
+
+@mixin text-body-lg {
+  font-size: $sds-text-body-lg-font-size;
+  font-weight: $sds-text-body-lg-font-weight;
+  line-height: $sds-text-body-lg-line-height;
+  font-family: $sds-text-body-lg-font-family;
+}
+
+/*************************
+* BUTTON RELATED MIXIN
+*************************/
+
+@mixin apply-if-not-blank($property, $value) {
+  @if ($value != _) {
+    #{$property}: $value;
+  }
+}
+@mixin bg--shadow-reset {
+  background-color: transparent;
+  box-shadow: unset;
+}
+
+@mixin bg--shadow-border--reset {
+  background-color: transparent;
+  box-shadow: unset;
+  border: unset;
+}
+@mixin border--height-padding--reset {
+  border: 1px solid transparent;
+  height: auto;
+  padding: unset;
+}
+@mixin button-size($size) {
+  @if $size == xs {
+    @include text-body-sm;
+    padding: $space-0 $space-60;
+    height: 28px;
+  }
+  @if $size == sm {
+    @include text-body-md;
+    padding: $space-0 $space-70;
+    height: 32px;
+  } @else if $size == md {
+    @include text-body-md;
+    padding: $space-0 $space-80;
+    height: 36px;
+  } @else if $size == lg {
+    @include text-body-lg;
+    font-size: 16px !important;
+    padding: $space-0 $space-90;
+    height: 40px;
+  }
+}
+
+/*** button default sizes ***/
+@mixin generate-button-sizes {
+  @each $size in $button-sizes-map {
+    &.btn--#{$size} {
+      @include button-size($size);
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: #{$bp}) {
+      @each $size in $button-sizes-map {
+        &.#{$prefix}\:btn--size-#{$size} {
+          @include button-size($size);
+        }
+      }
+    }
+  }
+}
+
+/*** button variation ***/
+
+@mixin variant-fill($bg: _, $color: _, $border-color: _, $hover-bg: _, $hover-text, $active-bg: _, $shadow-unset: _) {
+  @include apply-if-not-blank(background-color, $bg);
+  @include apply-if-not-blank(color, $color);
+  @include apply-if-not-blank(border-color, $border-color);
+  @include apply-if-not-blank(box-shadow, $shadow-unset);
+  &:hover {
+    @include apply-if-not-blank(background-color, $hover-bg);
+    @include apply-if-not-blank(color, $hover-text);
+  }
+  &:active {
+    @include apply-if-not-blank(background-color, $active-bg);
+  }
+}
+
+@mixin variant-outline($color, $border-color, $hover-bg-color, $hover-text-color) {
+  &.btn--outline {
+    @include apply-if-not-blank(color, $color);
+    border: 1px solid $border-color;
+    @include bg--shadow-reset();
+    &:hover {
+      @include apply-if-not-blank(background-color, $hover-bg-color);
+      @include apply-if-not-blank(color, $hover-text-color);
+    }
+  }
+}
+
+@mixin variant-plain($color, $hover-color) {
+  &.btn--plain {
+    @include apply-if-not-blank(color, $color);
+    @include border--height-padding--reset();
+    @include bg--shadow-reset();
+    &:hover {
+      background-color: transparent;
+      @include apply-if-not-blank(color, $hover-color);
+    }
+  }
+}
+
+@mixin variant-solid($color: _, $hover-bg: _, $hover-text: _) {
+  &.btn--solid {
+    @include apply-if-not-blank(color, $color);
+    @include bg--shadow-border--reset();
+    &:hover {
+      @include apply-if-not-blank(background-color, $hover-bg);
+      @include apply-if-not-blank(color, $hover-text);
+    }
+  }
+}
+@mixin button-variant-and-color {
+  @each $color-name, $variants in $button-colors {
+    .btn--#{"" + $color-name} {
+      @if map.has-key($variants, fill) {
+        @include variant-fill(map.get($variants, fill)...);
+      }
+      @if map.has-key($variants, outline) {
+        @include variant-outline(map.get($variants, outline)...);
+      }
+      @if map.has-key($variants, plain) {
+        @include variant-plain(map.get($variants, plain)...);
+      }
+      @if map.has-key($variants, solid) {
+        @include variant-solid(map.get($variants, solid)...);
+      }
+    }
+  }
+}
+
+/*************************
+* INPUT RELATED MIXIN
+*************************/
+@mixin generate-default-input-heights($class-prefix) {
+  @each $key, $val in $input-sizes-map {
+    .#{$class-prefix}--#{$key},
+    .#{key}\:#{$class-prefix}--#{$key},
+    .#{key}\:#{$class-prefix}--#{$key},
+    .#{key}\:#{$class-prefix}--#{$key} {
+      height: $val;
+    }
+  }
+}
+@mixin generate-responsive-input-heights($class-prefix) {
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: #{$bp}) {
+      @each $key, $val in $input-sizes-map {
+        .#{$prefix}\:#{$class-prefix}--#{$key} {
+          height: $val;
+        }
+      }
+    }
+  }
+}
+@mixin generate-input-size($class-prefix) {
+  @each $key, $val in $input-sizes-map {
+    &.#{$class-prefix}--#{$key} {
+      height: $val;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: #{$bp}) {
+      @each $key, $val in $input-sizes-map {
+        &.#{$prefix}\:#{$class-prefix}--#{$key} {
+          height: $val;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-input-error-message($class-prefix) {
+  &.#{$class-prefix}--field-error {
+    border-color: $sds-color-border-critical;
+    background-color: $sds-color-bg-fill-critical-secondary;
+    &:focus {
+      outline: 2px solid $sds-color-border-critical;
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+  }
+}
+
+/*************************
+* TEXT AREA RELATED MIXIN
+*************************/
+@mixin generate-default-textarea-heights {
+  @each $key, $val in $textareaSizes-map {
+    .textarea--#{$key},
+    .#{key}\:textarea--#{$key},
+    .#{key}\:textarea--#{$key},
+    .#{key}\:textarea--#{$key} {
+      height: $val;
+    }
+  }
+}
+@mixin generate-responsive-textarea-heights {
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: #{$bp}) {
+      @each $key, $val in $textareaSizes-map {
+        .#{$prefix}\:textarea--#{$key} {
+          height: $val;
+        }
+      }
+    }
+  }
+}
+/*************************
+* BADGE MIXIN
+*************************/
+@mixin generate-badge-variant {
+  @each $key, $colors in $badge-colors {
+    &.badge--#{"" + $key} {
+      background-color: map.get($colors, bg);
+      border: 1px solid map.get($colors, border);
+      color: map.get($colors, text);
+    }
+  }
+}
+/*************************
+* TAG MIXIN
+*************************/
+@mixin generate-tag-color {
+  @each $key, $color in $tag-colors {
+    &.tag--color-#{"" + $key} {
+      background-color: map.get($color, bg);
+      p {
+        color: map.get($color, text);
+      }
+    }
+  }
+}
+
+/*************************
+* SWITCH MIXIN
+*************************/
+@mixin generate-switch-color {
+  @each $key, $color in $text-colors {
+    & input[type="checkbox"]:checked + .switch--#{"" + $key}:before {
+      background-color: $color;
+      border-color: $color;
+    }
+  }
+}
+/*************************
+* CHECKBOX MIXIN
+*************************/
+@mixin generate-checkbox-color {
+  @each $key, $color in $text-colors {
+    .checkbox--#{"" + $key}:checked {
+      background-color: $color;
+      border-color: $color;
+    }
+  }
+}
+/*************************
+* RADIO MIXIN
+*************************/
+@mixin generate-radio-color {
+  @each $key, $color in $text-colors {
+    &.radio--field-#{"" + $key}:checked {
+      box-shadow: inset 0 0 0 2px $color;
+      &::before {
+        background-color: $color;
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+}
+/*************************
+* POSITION MIXIN
+*************************/
+
+@mixin generate-position {
+  @each $key, $value in $position-map {
+    &.position--#{"" + $key} {
+      position: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $bg-colors {
+        &.#{$prefix}\:position--#{"" + $key} {
+          position: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-position-gap-property {
+  @each $key, $value in $space {
+    &.left--#{"" + $key} {
+      left: $value;
+    }
+    &.right--#{"" + $key} {
+      right: $value;
+    }
+    &.top--#{"" + $key} {
+      top: $value;
+    }
+    &.bottom--#{"" + $key} {
+      bottom: $value;
+    }
+  }
+}
+/*************************
+* BORDER MIXIN
+*************************/
+@mixin generate-border {
+  &.border {
+    border: 1px solid $sds-color-border;
+  }
+}
+@mixin generate-border-width {
+  @each $width in $border-width {
+    &.border-width--#{"" + $width} {
+      border-width: $width + px;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $border-width {
+        &.#{$prefix}\:border-width--#{"" + $key} {
+          border-width: $value + px;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-border-color {
+  @each $key, $value in $bg-colors {
+    &.border--#{"" + $key} {
+      border-color: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $bg-colors {
+        &.#{$prefix}\:border--#{"" + $key} {
+          border-color: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-border-style {
+  @each $key, $value in $border-style-map {
+    &.border-style--#{"" + $key} {
+      border-style: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $border-style-map {
+        &.#{$prefix}\:border-style--#{"" + $key} {
+          border-style: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-border-corners($top: null, $right: null, $bottom: null, $left: null) {
+  @if $top != null {
+    border-top-left-radius: $top;
+    border-top-right-radius: $top;
+  }
+  @if $right != null {
+    border-top-right-radius: $right;
+    border-bottom-right-radius: $right;
+  }
+  @if $bottom != null {
+    border-bottom-left-radius: $bottom;
+    border-bottom-right-radius: $bottom;
+  }
+  @if $left != null {
+    border-top-left-radius: $left;
+    border-bottom-left-radius: $left;
+  }
+}
+
+@mixin generate-radius {
+  @each $key, $value in $border-radius-map {
+    &.rounded--#{$key} {
+      border-radius: if($value == 50, 50%, #{$value}rem);
+    }
+    &.rounded-tl--#{$key} {
+      border-top-left-radius: if($value == 50, 50%, #{$value}rem);
+    }
+    &.rounded-tr--#{$key} {
+      border-top-right-radius: if($value == 50, 50%, #{$value}rem);
+    }
+    &.rounded-br--#{$key} {
+      border-bottom-right-radius: if($value == 50, 50%, #{$value}rem);
+    }
+    &.rounded-bl--#{$key} {
+      border-bottom-left-radius: if($value == 50, 50%, #{$value}rem);
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $border-radius-map {
+        &.#{$prefix}\:rounded--#{$key} {
+          border-radius: if($value == 50, 50%, #{$value}rem);
+        }
+        &.#{$prefix}\:rounded-tl--#{$key} {
+          border-top-left-radius: if($value == 50, 50%, #{$value}rem);
+        }
+        &.#{$prefix}\:rounded-tr--#{$key} {
+          border-top-right-radius: if($value == 50, 50%, #{$value}rem);
+        }
+        &.#{$prefix}\:rounded-br--#{$key} {
+          border-bottom-right-radius: if($value == 50, 50%, #{$value}rem);
+        }
+        &.#{$prefix}\:rounded-bl--#{$key} {
+          border-bottom-left-radius: if($value == 50, 50%, #{$value}rem);
+        }
+      }
+    }
+  }
+}
+/*************************
+* BACKGROUND MIXIN
+*************************/
+
+@mixin generate-bg {
+  @each $key, $value in $bg-colors {
+    &.bg--#{"" + $key} {
+      background-color: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $bg-colors {
+        &.#{$prefix}\:bg--#{"" + $key} {
+          background-color: $value;
+        }
+      }
+    }
+  }
+}
+/*************************
+* SOPPIYA ICON BACKGROUND MIXIN
+*************************/
+@mixin generate-soppiya-icon-bg {
+  @each $key, $value in $soppiya-bg-colors {
+    &.bg--#{"" + $key} {
+      background-color: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $soppiya-bg-colors {
+        &.#{$prefix}\:bg--#{"" + $key} {
+          background-color: $value;
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* PADDING MIXIN
+*************************/
+
+@mixin generate-padding {
+  @each $key, $value in $space {
+    &.p--#{$key} {
+      padding: $value;
+    }
+
+    &.px--#{$key} {
+      padding-left: $value;
+      padding-right: $value;
+    }
+
+    &.py--#{$key} {
+      padding-top: $value;
+      padding-bottom: $value;
+    }
+
+    &.pt--#{$key} {
+      padding-top: $value;
+    }
+
+    &.pb--#{$key} {
+      padding-bottom: $value;
+    }
+
+    &.pl--#{$key} {
+      padding-left: $value;
+    }
+
+    &.pr--#{$key} {
+      padding-right: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $space {
+        &.#{$prefix}\:p--#{"" + $key} {
+          padding: #{$value};
+        }
+        &.#{$prefix}\:px--#{"" + $key} {
+          padding-left: #{$value};
+          padding-right: #{$value};
+        }
+        &.#{$prefix}\:py--#{"" + $key} {
+          padding-top: #{$value};
+          padding-bottom: #{$value};
+        }
+        &.#{$prefix}\:pt--#{"" + $key} {
+          padding-top: #{$value};
+        }
+        &.#{$prefix}\:pr--#{"" + $key} {
+          padding-right: #{$value};
+        }
+        &.#{$prefix}\:pb--#{"" + $key} {
+          padding-bottom: #{$value};
+        }
+        &.#{$prefix}\:pl--#{"" + $key} {
+          padding-left: #{$value};
+        }
+      }
+    }
+  }
+}
+/*************************
+* MARGIN MIXIN
+*************************/
+@mixin generate-margin {
+  @each $key, $value in $space {
+    &.m--#{$key} {
+      margin: $value;
+    }
+
+    &.mx--#{$key} {
+      margin-left: $value;
+      margin-right: $value;
+    }
+
+    &.my--#{$key} {
+      margin-top: $value;
+      margin-bottom: $value;
+    }
+
+    &.mt--#{$key} {
+      margin-top: $value;
+    }
+
+    &.mb--#{$key} {
+      margin-bottom: $value;
+    }
+
+    &.ml--#{$key} {
+      margin-left: $value;
+    }
+
+    &.mr--#{$key} {
+      margin-right: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $space {
+        &.#{$prefix}\:m--#{"" + $key} {
+          margin: #{$value};
+        }
+        &.#{$prefix}\:mx--#{"" + $key} {
+          margin-left: #{$value};
+          margin-right: #{$value};
+        }
+        &.#{$prefix}\:my--#{"" + $key} {
+          margin-top: #{$value};
+          margin-bottom: #{$value};
+        }
+        &.#{$prefix}\:mt--#{"" + $key} {
+          margin-top: #{$value};
+        }
+        &.#{$prefix}\:mr--#{"" + $key} {
+          margin-right: #{$value};
+        }
+        &.#{$prefix}\:mb--#{"" + $key} {
+          margin-bottom: #{$value};
+        }
+        &.#{$prefix}\:ml--#{"" + $key} {
+          margin-left: #{$value};
+        }
+      }
+    }
+  }
+}
+/*************************
+* OVERFLOW MIXIN
+*************************/
+@mixin generate-overflow {
+  @each $key, $value in $overflow-map {
+    &.overflow--#{$key} {
+      overflow: $value;
+    }
+    &.overflow-x--#{$key} {
+      overflow-x: $value;
+    }
+    &.overflow-y--#{$key} {
+      overflow-y: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $overflow-map {
+        &.#{$prefix}\:overflow--#{$key} {
+          overflow: $value;
+        }
+        &.#{$prefix}\:overflow-x--#{$key} {
+          overflow-x: $value;
+        }
+        &.#{$prefix}\:overflow-y--#{$key} {
+          overflow-y: $value;
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* SHADOW MIXIN
+*************************/
+@mixin apply-shadow($size) {
+  @if map.has-key($shadow-map, $size) {
+    box-shadow: map.get($shadow-map, $size);
+  } @else {
+    @warn "No shadow defined for `#{$size}`";
+  }
+}
+@mixin generate-shadow {
+  @each $key, $value in $shadow-map {
+    &.shadow--#{"" + $key} {
+      box-shadow: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $shadow-map {
+        &.#{$prefix}\:shadow--#{"" + $key} {
+          box-shadow: $value;
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* FLEX BOX MIXIN
+*************************/
+@mixin flexbox($justify: _, $align: _, $gap: _, $direction: _) {
+  display: flex;
+  @if ($justify != _) {
+    justify-content: $justify;
+  }
+  @if ($align != _) {
+    align-items: $align;
+  }
+  @if ($gap != _) {
+    gap: $gap;
+  }
+  @if ($direction != _) {
+    flex-direction: $direction;
+  }
+}
+@mixin generate-gap {
+  @each $key, $value in $space {
+    &.gap--#{$key} {
+      gap: $value;
+    }
+
+    &.gap-x--#{$key} {
+      column-gap: $value;
+    }
+
+    &.gap-y--#{$key} {
+      row-gap: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $space {
+        &.#{$prefix}\:gap--#{"" + $key} {
+          gap: #{$value};
+        }
+
+        &.#{$prefix}\:gap-x--#{"" + $key} {
+          column-gap: #{$value};
+        }
+
+        &.#{$prefix}\:gap-y--#{"" + $key} {
+          row-gap: #{$value};
+        }
+      }
+    }
+  }
+}
+@mixin generate-responsive-gap {
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $space {
+        &.#{$prefix}\:gap--#{"" + $key} {
+          gap: #{$value};
+        }
+
+        &.#{$prefix}\:gap-x--#{"" + $key} {
+          column-gap: #{$value};
+        }
+
+        &.#{$prefix}\:gap-y--#{"" + $key} {
+          row-gap: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-justify-content {
+  @each $key, $value in $justify-content-map {
+    &.justify-content--#{$key} {
+      justify-content: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $justify-content-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:justify-content--#{$key} {
+          justify-content: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-justify-items {
+  @each $key, $value in $justify-items-map {
+    &.justify-items--#{$key} {
+      justify-items: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $justify-items-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:justify-items--#{$key} {
+          justify-items: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-align-items {
+  @each $key, $value in $align-items-map {
+    &.align-items--#{$key} {
+      align-items: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $align-items-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:align-items--#{$key} {
+          align-items: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-justify-self {
+  @each $key, $value in $justify-self-map {
+    &.justify-self--#{$key} {
+      justify-self: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $justify-self-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:justify-self--#{$key} {
+          justify-self: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-align-content {
+  @each $key, $value in $align-content-map {
+    &.align-content--#{$key} {
+      align-content: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $align-content-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:align-content--#{$key} {
+          align-content: $value;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-flex-order {
+  @each $key, $value in $flex-order-map {
+    &.flex-order--#{$key} {
+      order: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $flex-order-map {
+        &.#{$prefix}\:flex-order--#{$key} {
+          order: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-flex-direction {
+  @each $key, $value in $flex-direction-map {
+    &.flex-direction--#{$key} {
+      flex-direction: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $flex-direction-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:flex-direction--#{$key} {
+          flex-direction: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-row-direction {
+  @each $key, $value in $row-direction-map {
+    &.flex-direction--#{$key} {
+      flex-direction: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $row-direction-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:flex-direction--#{$key} {
+          flex-direction: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-column-direction {
+  @each $key, $value in $column-direction-map {
+    &.flex-direction--#{$key} {
+      flex-direction: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $column-direction-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:flex-direction--#{$key} {
+          flex-direction: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-flex-wrap {
+  @each $key, $value in $flex-wrap-map {
+    &.flex-wrap--#{$key} {
+      flex-wrap: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $flex-wrap-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:flex-wrap--#{$key} {
+          flex-wrap: $value;
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* GRID MIXIN
+*************************/
+
+@mixin generate-grid-column {
+  @each $key, $value in $grid-cols-map {
+    &.col--#{$key} {
+      grid-template-columns: repeat(#{$value}, minmax(0, 1fr));
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        // @debug '#{$key}: #{$value} => #{$bp}';
+        &.#{$prefix}\:col--#{$key} {
+          grid-template-columns: repeat(#{$value}, minmax(0, 1fr));
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-grid-row {
+  @each $key, $value in $grid-cols-map {
+    &.row--#{$key} {
+      grid-template-rows: repeat(#{$value}, minmax(0, 1fr));
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      // @debug 'Breakpoint: #{$prefix} => #{$bp}';
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:row--#{$key} {
+          grid-template-rows: repeat(#{$value}, minmax(0, 1fr));
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-grid-col-span {
+  @each $key, $value in $grid-cols-map {
+    &.col-span--#{$value} {
+      grid-column: span #{$value} / span #{$value};
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:col-span--#{$value} {
+          grid-column: span #{$value} / span #{$value};
+        }
+      }
+    }
+  }
+}
+@mixin generate-grid-row-span {
+  @each $key, $value in $grid-cols-map {
+    &.row-span--#{$value} {
+      grid-row: span #{$value} / span #{$value};
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:row-span--#{$value} {
+          grid-row: span #{$value} / span #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-grid-col-start {
+  @each $key, $value in $grid-cols-map {
+    &.col-start--#{$value} {
+      grid-column-start: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:col-start--#{$value} {
+          grid-column-start: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-grid-col-end {
+  @each $key, $value in $grid-cols-map {
+    &.col-end--#{$value} {
+      grid-column-end: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:col-end--#{$value} {
+          grid-column-end: span $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-grid-col-start-end {
+  @include generate-grid-col-start();
+  @include generate-grid-col-end();
+}
+@mixin generate-grid-row-start {
+  @each $key, $value in $grid-cols-map {
+    &.row-start--#{$value} {
+      grid-row-start: span $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:row-start--#{$value} {
+          grid-row-start: span $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-grid-row-end {
+  @each $key, $value in $grid-cols-map {
+    &.row-end--#{$value} {
+      grid-row-end: span $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $grid-cols-map {
+        &.#{$prefix}\:row-end--#{$value} {
+          grid-row-end: span $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-grid-row-start-end {
+  @include generate-grid-row-end();
+  @include generate-grid-row-end();
+}
+$auto-cols: (
+  auto: auto,
+);
+
+@mixin generate-auto-col {
+  // Global class generate
+  @each $key, $value in $auto-cols {
+    &.col--#{$key} {
+      grid-column: #{$value};
+    }
+  }
+
+  // Responsive class generate
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $auto-cols {
+        &.#{$prefix}\:col--#{$key} {
+          grid-column: #{$value};
+        }
+      }
+    }
+  }
+}
+@mixin generate-auto-row {
+  // Global class generate
+  @each $key, $value in $auto-cols {
+    &.row--#{$key} {
+      grid-row: #{$value};
+    }
+  }
+
+  // Responsive class generate
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $auto-cols {
+        &.#{$prefix}\:row--#{$key} {
+          grid-row: #{$value};
+        }
+      }
+    }
+  }
+}
+
+$full-cols: (
+  full: "1 / -1",
+);
+
+@mixin generate-full-col {
+  @each $key, $value in $full-cols {
+    &.col-span--#{$key} {
+      grid-column: #{$value};
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $full-cols {
+        &.#{$prefix}\:col--span-#{$key} {
+          grid-column: #{$value};
+        }
+      }
+    }
+  }
+}
+@mixin generate-full-row {
+  @each $key, $value in $full-cols {
+    &.row-span--#{$key} {
+      grid-row: #{$value};
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $full-cols {
+        &.#{$prefix}\:row-span--#{$key} {
+          grid-row: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-grid-col-start-end {
+  @include generate-grid-col-start();
+  @include generate-grid-col-end();
+}
+
+@mixin generate-grid {
+  @include generate-grid-column();
+  @include generate-grid-row();
+  @include generate-gap();
+  @include generate-responsive-gap();
+  @include generate-justify-content();
+  @include generate-justify-items();
+  @include generate-align-items();
+  @include generate-justify-self();
+  @include generate-align-content();
+  .grid--col {
+    @include generate-grid-col-span();
+    @include generate-grid-col-start-end();
+    @include generate-auto-col();
+    @include generate-full-col();
+    /* row */
+    @include generate-grid-row-span();
+    @include generate-full-row();
+    @include generate-auto-row();
+    @include generate-grid-row-start-end();
+
+    @include generate-grid-order();
+    @include generate-align-content();
+  }
+}
+/*************************
+* MODAL MIXIN
+*************************/
+
+@mixin modal-sizes {
+  @each $key, $value in $modal-sizes-map {
+    &--size-#{$key} {
+      max-width: $value;
+      width: 100%;
+    }
+  }
+}
+/*************************
+* PULSE ANIMATION MIXIN
+*************************/
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+@mixin generate-pulse-animation($duration: 2s, $timing: cubic-bezier(0.4, 0, 0.6, 1), $infinite: infinite) {
+  animation: pulse $duration $timing $infinite;
+}
+/*************************
+* SKELETON MIXIN
+*************************/
+@mixin generate-skeleton-body-text-size {
+  @each $key, $value in $skeleton-body-text-sizes-map {
+    .skeleton--body-text--#{$key} {
+      height: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $skeleton-body-text-sizes-map {
+        .#{$prefix}\:skeleton--body-text--#{$key} {
+          height: $value;
+        }
+      }
+    }
+  }
+}
+
+@mixin generate-skeleton-display-text-size {
+  @each $key, $value in $skeleton-display-text-sizes-map {
+    .skeleton--display-text--#{$key} {
+      height: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $skeleton-body-text-sizes-map {
+        .#{$prefix}\:skeleton--display-text--#{$key} {
+          height: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-thumbnail-size {
+  @each $key, $value in $skeleton-thumbnail-map {
+    @if $key == auto {
+      .skeleton--thumbnail-placeholder--auto {
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+    } @else {
+      .skeleton--thumbnail-placeholder--#{$key} {
+        height: $value;
+        width: $value;
+      }
+    }
+  }
+
+  // Responsive sizes
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $skeleton-thumbnail-map {
+        @if $key == auto {
+          .#{"#{prefix}\\:skeleton--thumbnail-placeholder--auto"} {
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+          }
+        } @else {
+          .#{"#{prefix}\\:skeleton--thumbnail-placeholder--#{$key}"} {
+            height: $value;
+            width: $value;
+          }
+        }
+      }
+    }
+  }
+}
+/*************************
+* TABLE MIXIN
+*************************/
+
+@mixin generate-table-size {
+  @each $key, $value in $table-sizes-map {
+    &.table--#{$key} {
+      min-width: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $table-sizes-map {
+        &.#{$prefix}\:table--#{$key} {
+          min-width: $value;
+        }
+      }
+    }
+  }
+}
+@mixin generate-table-scroll {
+  &.table--scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      &.#{$prefix}\:table--scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+  }
+}
+@mixin generate-table-striped {
+  &.table-stripe--striped:nth-child(even) {
+    background-color: rgb(247 247 247 / 60%);
+  }
+
+  &.table-stripe--none:nth-child(even) {
+    background-color: transparent;
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      &.#{$prefix}\:table-stripe--striped:nth-child(even) {
+        background-color: rgb(247 247 247 / 60%);
+      }
+
+      &.#{$prefix}\:table-stripe--none:nth-child(even) {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@mixin generate-table-border-variants {
+  // Base classes
+  &.table--bordered {
+    border: 1px solid $sds-color-border !important;
+
+    thead tr,
+    tbody tr {
+      border-bottom: 1px solid $sds-color-border !important;
+    }
+
+    thead tr th,
+    tbody tr td {
+      border-right: 1px solid $sds-color-border !important;
+    }
+  }
+
+  &.table--border-less {
+    border: none !important;
+
+    thead tr,
+    tbody tr,
+    thead tr th,
+    tbody tr td {
+      border: none !important;
+    }
+  }
+
+  // Responsive classes per breakpoint
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      &.#{$prefix}\:table--bordered {
+        border: 1px solid $sds-color-border !important;
+
+        thead tr,
+        tbody tr {
+          border-bottom: 1px solid $sds-color-border !important;
+        }
+
+        thead tr th,
+        tbody tr td {
+          border-right: 1px solid $sds-color-border !important;
+        }
+      }
+
+      &.#{$prefix}\:table--border-less {
+        border: none !important;
+
+        thead tr,
+        tbody tr,
+        thead tr th,
+        tbody tr td {
+          border: none !important;
+        }
+      }
+    }
+  }
+}
+/*************************
+* PAGINATION MIXIN
+*************************/
+
+@mixin generate-pagination-size {
+  @each $key, $value in $pagination-sizes-map {
+    &.pagination--#{$key} {
+      width: $value;
+      height: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $pagination-sizes-map {
+        &.#{$prefix}\:pagination--#{$key} {
+          width: $value;
+          height: $value;
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* DIVIDER
+*************************/
+@mixin generate-divider-style {
+  @each $key, $value in $divider-map {
+    &.divider--#{"" + $key} {
+      background-color: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $divider-map {
+        &.#{$prefix}\:divider--#{"" + $key} {
+          background-color: $value;
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* SNACKBAR
+*************************/
+@mixin generate-snackbar-position {
+  @each $position in $snackbar-position {
+    &.snackbar--#{$position} {
+      @if $position == bottom-left {
+        bottom: 20px;
+        left: 20px;
+      } @else if $position == bottom-center {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      } @else if $position == bottom-right {
+        bottom: 20px;
+        right: 20px;
+      } @else if $position == top-left {
+        top: 20px;
+        left: 20px;
+      } @else if $position == top-center {
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+      } @else if $position == top-right {
+        top: 20px;
+        right: 20px;
+      }
+    }
+  }
+}
+
+/*************************
+* USER AVATAR
+*************************/
+$user-avatar-sizes: (
+  xs: 28px,
+  sm: 32px,
+  md: 36px,
+  lg: 40px,
+  xl: 60px,
+  xxl: 80px,
+  xxxl: 120px,
+);
+@mixin generate-user-avatar-size {
+  @each $key, $value in $user-avatar-sizes {
+    &.avatar--#{$key} {
+      width: $value;
+      height: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $user-avatar-sizes {
+        &.#{$prefix}\:avatar--#{$key} {
+          width: $value;
+          height: $value;
+        }
+      }
+    }
+  }
+}
+/*************************
+* SOPPIYA ICON
+*************************/
+$soppiya-icon-sizes: (
+  xs: 14,
+  sm: 16,
+  md: 18,
+  lg: 21,
+  xl: 25,
+  2xl: 30,
+  3xl: 36,
+  4xl: 40,
+);
+
+@mixin generate-soppiya-icon-size {
+  @each $key, $value in $soppiya-icon-sizes {
+    &.icon--#{$key} {
+      width: #{$value}px;
+      height: #{$value}px;
+      scale: calc(#{$value} / 14);
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $soppiya-icon-sizes {
+        &.#{$prefix}\:icon--#{$key} {
+          width: #{$value}px;
+          height: #{$value}px;
+          scale: calc(#{$value} / 14);
+        }
+      }
+    }
+  }
+}
+
+/*************************
+* ORDER
+*************************/
+$grid-orders: 1, 2, 3, 4, 5, 6, 7, 8, 9;
+@mixin generate-grid-order {
+  // Base order
+  @each $value in $grid-orders {
+    &.order--#{$value} {
+      order: $value;
+    }
+  }
+
+  // Responsive order
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $value in $grid-orders {
+        &.#{$prefix}\:order--#{$value} {
+          order: $value;
+        }
+      }
+    }
+  }
+}
+/*************************
+* DISPLAY
+*************************/
+$display-maps: (
+  flex: flex,
+  grid: grid,
+  block: block,
+  inline-block: inline-block,
+  inline: inline,
+  inline-flex: inline-flex,
+  inline-grid: inline-grid,
+  contents: contents,
+  flow: flow,
+  list-item: list-item,
+  math: math,
+  none: none,
+  initial: initial,
+  inherit: inherit,
+  ruby: ruby,
+  table: table,
+  inline-table: inline-table,
+);
+
+@mixin generate-display {
+  // Base display
+  @each $key, $value in $display-maps {
+    &.display--#{$key} {
+      display: $value;
+    }
+  }
+
+  // Responsive display
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $display-maps {
+        &.#{$prefix}\:display--#{$key} {
+          display: $value;
+        }
+      }
+    }
+  }
+}

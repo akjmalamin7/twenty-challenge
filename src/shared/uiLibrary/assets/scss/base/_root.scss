@@ -1,0 +1,181 @@
+/*********************************
+* TABLE OF CONTENT
+**********************************/
+
+/*********************************
+**********************************
+**** - ✅ IMPORT ESSENTIAL FILE
+**** - ✅ BACKGROUND
+**** - ✅ TEXT
+**** - ✅ ICON
+**** - ✅ BORDER
+**** - ✅ AVATAR
+**** - ✅ FONT,SIZE,WEIGHT,LINE-HEIGHT
+**** - ✅ SHADOW
+***********************************
+***********************************/
+
+/*********************************
+* IMPORTED FILE
+**********************************/
+@use "../foundation/variables" as *;
+
+:root {
+  /*********************************
+  * BACKGROUND
+  **********************************/
+  --sds-color-bg: #{$black-s6};
+  --sds-color-bg-inverse: #{$black-s15};
+  --sds-color-bg-surface: #{$black-s1};
+  --sds-color-bg-surface-hover: #{$black-s5};
+  --sds-color-bg-surface-selected: #{$black-s4};
+  --sds-color-bg-surface-secondary: #{$black-s7};
+  --sds-color-bg-surface-secondary-selected: #{black-s8};
+  --sds-color-bg-surface-tertiary: #{$black-s5};
+  --sds-color-bg-fill-brand: #{$black-s15};
+  --sds-color-bg-fill-brand-hover: #{$black-s16};
+  --sds-color-bg-fill-brand-selected: #{$black-s16};
+  --sds-color-bg-fill-brand-disable: #{$black-s9};
+  --sds-color-bg-fill-success: #{$green-s3};
+  --sds-color-bg-fill-success-hover: #{$green-s4};
+  --sds-color-bg-fill-success-selected: #{$green-s5};
+  --sds-color-bg-fill-success-secondary: #{$green-s1};
+  --sds-color-bg-fill-warning: #{$yellow-s3};
+  --sds-color-bg-fill-warning-hover: #{$yellow-s4};
+  --sds-color-bg-fill-warning-selected: #{$yellow-s6};
+  --sds-color-bg-fill-warning-secondary: #{$yellow-s1};
+  --sds-color-bg-fill-critical: #{$red-s4};
+  --sds-color-bg-fill-critical-hover: #{$red-s5};
+  --sds-color-bg-fill-critical-selected: #{$red-s6};
+  --sds-color-bg-fill-critical-secondary: #{$red-s1};
+  --sds-color-bg-fill-info: #{$teal-s3};
+  --sds-color-bg-fill-info-hover: #{$teal-s4};
+  --sds-color-bg-fill-info-selected: #{$teal-s5};
+  --sds-color-bg-fill-info-secondary: #{$teal-s1};
+  --sds-color-bg-fill-white: #{$black-s1};
+  --sds-color-bg-fill-white-hover: #{$black-s5};
+  --sds-color-bg-fill-white-selected: #{$black-s7};
+  --sds-color-bg-fill-link: #{$blue-s1};
+  --sds-color-bg-fill-link-hover: #{$blue-s2};
+  --sds-color-bg-fill-link-hover-secondary: #{$blue-s4};
+
+  /*********************************
+  * TEXT
+  **********************************/
+  --sds-color-text-brand: #{$black-s15};
+  --sds-color-text-brand-hover: #{$black-s16};
+  --sds-color-text-brand-on-bg-fill: #{$black-s1};
+  --sds-color-text-brand-on-bg-fill-hover: #{$black-s7};
+  --sds-color-text-brand-on-bg-fill-active: #{$black-s9};
+  --sds-color-text-brand-on-bg-fill-disable: #{$black-s10};
+  --sds-color-text-dark: #{$black-s15};
+  --sds-color-text-dark-hover: #{$black-s16};
+  --sds-color-text-secondary: #{$black-s13};
+  --sds-color-text-secondary-hover: #{$black-s14};
+  --sds-color-text-tertiary: #{$black-s12};
+  --sds-color-text-tertiary-hover: #{$black-s13};
+  --sds-color-text-disable: #{$black-s2};
+  --sds-color-text-link: #{$blue-s1};
+  --sds-color-text-link-hover: #{$blue-s2};
+  --sds-color-text-link-active: #{$blue-s3};
+  --sds-color-text-success: #{$green-s6};
+  --sds-color-text-success-hover: #{$green-s5};
+  --sds-color-text-warning: #{$yellow-s3};
+  --sds-color-text-warning-hover: #{$yellow-s4};
+  --sds-color-text-critical: #{$red-s4};
+  --sds-color-text-info: #{$teal-s6};
+  --sds-color-text-info-hover: #{$teal-s5};
+  --sds-color-text-white: #{$black-s1};
+  --sds-color-text-white-hover: #{$black-s15};
+  /***********************
+  *  ICON
+  ************************/
+  --sds-color-icon: #{$black-s13};
+  --sds-color-icon-hover: #{$black-s15};
+  --sds-color-icon-active: #{$black-s16};
+  --sds-color-icon-disable: #{$black-s10};
+  --sds-color-icon-secondary: #{$black-s15};
+  --sds-color-icon-secondary-hover: #{$black-s16};
+  --sds-color-icon-secondary-active: #{$black-s16};
+  /***********************
+  * BORDER
+  ************************/
+  --sds-color-border: #{$black-s7};
+  --sds-color-border-hover: #{$black-s9};
+  --sds-color-border-secondary: #{$black-s8};
+  --sds-color-border-focus: #{$blue-s1};
+  --sds-color-border-disable: #{$black-s9};
+  --sds-color-border-info: #{$teal-s2};
+  --sds-color-border-success: #{$green-s2};
+  --sds-color-border-critical: #{$red-s2};
+  --sds-color-border-warning: #{$yellow-s2};
+  --sds-color-border-link: #{$blue-s1};
+  /***********************
+  *  AVATAR
+  ************************/
+  --sds-color-avatar-one-text-on-bg-fill: #{$purple-s1};
+  --sds-color-avatar-two-text-on-bg-fill: #{$green-s3};
+  --sds-color-avatar-three-text-on-bg-fill: #{$red-s3};
+  --sds-color-avatar-four-text-on-bg-fill: #{$yellow-s5};
+  /***********************
+  *  FONT SIZE,WEIGHT,LINE HEIGHT
+  ************************/
+  --sds-body-font-family: #{$font-family-inter};
+  --sds-text-heading-xsm-font-size: #{$font-size-03};
+  --sds-text-heading-xsm-line-height: #{$line-height-03};
+  --sds-text-heading-xsm-font-weight: #{$font-weight-semibold};
+  --sds-text-heading-xsm-font-family: #{$font-family-inter};
+  --sds-text-heading-sm-font-size: #{$font-size-04};
+  --sds-text-heading-sm-line-height: #{$line-height-03};
+  --sds-text-heading-sm-font-weight: #{$font-weight-semibold};
+  --sds-text-heading-sm-font-family: #{$font-family-inter};
+  --sds-text-heading-md-font-size: #{$font-size-05};
+  --sds-text-heading-md-line-height: #{$line-height-04};
+  --sds-text-heading-md-font-weight: #{$font-weight-semibold};
+  --sds-text-heading-md-font-family: #{$font-family-inter};
+  --sds-text-heading-lg-font-size: #{$font-size-06};
+  --sds-text-heading-lg-line-height: #{$line-height-05};
+  --sds-text-heading-lg-font-weight: #{$font-weight-semibold};
+  --sds-text-heading-lg-font-family: #{$font-family-inter};
+  --sds-text-heading-xl-font-size: #{$font-size-07};
+  --sds-text-heading-xl-line-height: #{$line-height-06};
+  --sds-text-heading-xl-font-weight: #{$font-weight-bold};
+  --sds-text-heading-xl-font-family: #{$font-family-inter};
+  --sds-text-heading-2xl-font-size: #{$font-size-08};
+  --sds-text-heading-2xl-line-height: #{$line-height-07};
+  --sds-text-heading-2xl-font-weight: #{$font-weight-bold};
+  --sds-text-heading-2xl-font-family: #{$font-family-inter};
+  --sds-text-heading-3xl-font-size: #{$font-size-09};
+  --sds-text-heading-3xl-line-height: #{$line-height-08};
+  --sds-text-heading-3xl-font-weight: #{$font-weight-bold};
+  --sds-text-heading-3xl-font-family: #{$font-family-inter};
+  --sds-text-body-xs-font-size: #{$font-size-01};
+
+  --sds-text-body-xs-line-height: #{$line-height-01};
+  --sds-text-body-xs-font-weight: #{$font-weight-regular};
+  --sds-text-body-xs-font-family: #{$font-family-inter};
+  --sds-text-body-sm-font-size: #{$font-size-02};
+  --sds-text-body-sm-line-height: #{$line-height-02};
+  --sds-text-body-sm-font-weight: #{$font-weight-regular};
+  --sds-text-body-sm-font-family: #{$font-family-inter};
+  --sds-text-body-md-font-size: #{$font-size-03};
+  --sds-text-body-md-line-height: #{$line-height-03};
+  --sds-text-body-md-font-weight: #{$font-weight-regular};
+  --sds-text-body-md-font-family: #{$font-family-inter};
+  --sds-text-body-lg-font-size: #{$font-size-04};
+  --sds-text-body-lg-line-height: #{$line-height-03};
+  --sds-text-body-lg-font-weight: #{$font-weight-regular};
+  --sds-text-body-lg-font-family: #{$font-family-inter};
+
+  /***********************
+  *  shadow
+  ************************/
+  --sds-shadow-white: #{$shadow-white};
+  --sds-shadow-primary: #{$shadow-primary};
+  --sds-shadow-danger: #{$shadow-danger};
+  --sds-shadow-blue: #{$shadow-blue};
+  --sds-shadow-warning: #{$shadow-warning};
+  --sds-shadow-info: #{$shadow-info};
+  --sds-shadow-success: #{$shadow-success};
+  --sds-shadow-secondary: #{$shadow-primary};
+}

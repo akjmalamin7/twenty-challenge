@@ -1,0 +1,25 @@
+/*********************************
+* FOUNDATION 
+**********************************/
+@use "./foundation/all" as *;
+
+/*********************************
+* BASE
+**********************************/
+@use "./base/normalize" as *;
+@use "./base/root" as *;
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $sds-body-font-family;
+}
+
+@include desktop {
+  .cursor-pointer {
+    cursor: pointer;
+  }
+}

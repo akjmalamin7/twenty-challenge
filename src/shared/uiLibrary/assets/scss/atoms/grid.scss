@@ -1,0 +1,6 @@
+@use "../foundation/all" as *;
+.grid {
+  display: grid;
+  width: 100%;
+  @include generate-grid();
+}

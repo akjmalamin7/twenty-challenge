@@ -1,0 +1,4 @@
+@use "../foundation/all" as *;
+.verified-status {
+  @include flexbox(_, center, 5px, _);
+}

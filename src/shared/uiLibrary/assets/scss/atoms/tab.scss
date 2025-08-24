@@ -1,0 +1,56 @@
+@use "../foundation/all" as *;
+.tab {
+  &--separator {
+    border-bottom: 1px solid $sds-color-border;
+  }
+  /*************************
+ * Tab nav
+ *************************/
+  &--nav-scroll {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  &--nav-wrapper {
+    @include flexbox(start, center);
+  }
+  &--nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include flexbox(start, center);
+    & .nav--item {
+      @include flexbox();
+      /* underline */
+      &.nav--style-underline {
+        padding: 16px 12px;
+        &.nav--item-active {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+            border-radius: 4px 4px 0px 0px;
+            background-color: $sds-color-bg-inverse;
+          }
+        }
+      }
+      /* normal */
+      &.nav--style-normal {
+        padding: 4px 15px;
+        border-radius: 4px;
+        &.nav--item-active {
+          background-color: $sds-color-bg-surface-hover;
+        }
+      }
+      &.nav--item-cover {
+        flex: 1;
+      }
+      @include laptop {
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+@use "../foundation/all" as *;
+.phone {
+  width: 100%;
+  &--label {
+    margin-bottom: 4px;
+  }
+  &--label-text {
+    @include flexbox(space-between, center);
+  }
+
+  &--field-wrapper {
+    width: 100%;
+    @include flexbox(start, center, 6px);
+    &.phone--flag-position-right {
+      flex-direction: row-reverse;
+    }
+  }
+  &--flag-button {
+    width: 68px;
+    padding: 0px !important;
+    background-color: transparent !important;
+    box-shadow: unset !important;
+    border: 1px solid $sds-color-border !important;
+    & img {
+      width: 30px;
+    }
+    @include generate-input-size(phone);
+  }
+
+  &--field-box {
+    width: 100%;
+    @include generate-input-size(phone);
+  }
+  &--filed-loader {
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    border: 1px solid $sds-color-border;
+    @include flexbox(center, center);
+  }
+  &--field {
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    border: 1px solid $sds-color-border;
+
+    color: $sds-color-text-dark;
+    background-color: transparent;
+    font-family: $sds-body-font-family;
+
+    @include font(13px, $font-weight-regular);
+    letter-spacing: 2px;
+
+    &:focus {
+      outline: 2px solid $sds-color-border-focus;
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+    &.phone--field-disabled,
+    &.phone--field-readonly {
+      background-color: $black-s4;
+      border-color: #d2d5d8;
+      opacity: 0.4;
+    }
+    &::placeholder {
+      @include font(13px, $font-weight-regular);
+      color: $black-s13;
+    }
+    @include generate-input-error-message(phone);
+  }
+
+  &--help-message {
+    margin-top: 3px;
+  }
+  &--error-message {
+    margin-top: 3px;
+  }
+}
+.phone--flag-dropdown {
+  background-color: $black-s1;
+  border: 1px solid $sds-color-border;
+  border-radius: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      height: 36px;
+      @include flexbox(start, center, 8px);
+      padding: 0px 10px;
+      &:not(:last-child) {
+        border-bottom: 1px solid $black-s7;
+      }
+      & span {
+        @include flexbox();
+      }
+      @include laptop {
+        cursor: pointer;
+      }
+    }
+  }
+}

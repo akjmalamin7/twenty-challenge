@@ -1,0 +1,830 @@
+/*********************************
+* TABLE OF CONTENT
+**********************************/
+
+/*********************************
+**********************************
+**** - ✅ FONT
+**** - ✅ COLOR
+**** - ✅ SPACE
+**** - ✅ TEXT
+**** - ✅ INPUT
+**** - ✅ BUTTON
+**** - ✅ TEXT AREA
+**** - ✅ BORDER
+**** - ✅ OVERFLOW
+**** - ✅ POSITION
+**** - ✅ GRID
+**** - ✅ FLEX
+**** - ✅ TEXT DECORATION
+**** - ✅ ALIGNMENT
+**** - ✅ WORD BREAK
+**** - ✅ TRUNCATE
+**** - ✅ MODAL
+**** - ✅ TABLE
+**** - ✅ PAGINATION
+**** - ✅ SKELETON
+**** - ✅ BREAKPOINT
+**** - ✅ ANIMATION TIMING FUNCTION
+**** - ✅ SHADOW
+**** - ✅ DIVIDER 
+**** - ✅ SNACKBAR 
+***********************************
+***********************************/
+
+/* ********************************
+* 👍 FONT 
+***********************************/
+
+/* Font Family*/
+/**
+ *
+ * 1) The inter font use for entire design
+ *
+ * 2) Monospace font use for code.
+ */
+
+$font-family-inter: "Inter", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue",
+  sans-serif; /* 1 */
+$font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; /* 2 */
+
+/* Font Sizes */
+$font-size-01: 0.688rem;
+$font-size-02: 0.75rem;
+$font-size-03: 0.813rem;
+$font-size-04: 0.875rem;
+$font-size-05: 1rem;
+$font-size-06: 1.25rem;
+$font-size-07: 1.5rem;
+$font-size-08: 1.875rem;
+$font-size-09: 2.25rem;
+
+$font-size: (
+  01: 0.688rem,
+  02: 0.75rem,
+  03: 0.813rem,
+  04: 0.875rem,
+  05: 1rem,
+  06: 1.25rem,
+  07: 1.5rem,
+  08: 1.875rem,
+  09: 2.25rem,
+);
+
+/*  Font Line Height */
+$line-height-01: 0.75rem;
+$line-height-02: 1rem;
+$line-height-03: 1.25rem;
+$line-height-04: 1.5rem;
+$line-height-05: 1.75rem;
+$line-height-06: 2rem;
+$line-height-07: 2.5rem;
+$line-height-08: 3rem;
+
+$line-height: (
+  01: 0.75rem,
+  02: 1rem,
+  03: 1.25rem,
+  04: 1.5rem,
+  05: 1.75rem,
+  06: 2rem,
+  07: 2.5rem,
+  08: 3rem,
+);
+
+/* Font Weight */
+
+$font-weight-regular: 450;
+$font-weight-medium: 550;
+$font-weight-semibold: 650;
+$font-weight-bold: 700;
+
+$font-weight: (
+  regular: 450,
+  medium: 550,
+  semibold: 650,
+  bold: 700,
+);
+
+/* ********************************
+* 👍 COLOR 
+***********************************/
+
+$black-s1: #ffffff;
+$black-s2: #fdfdfd;
+$black-s3: #fafafa;
+$black-s4: #f7f7f7;
+$black-s5: #f3f3f3;
+$black-s6: #f1f1f1;
+$black-s7: #ebebeb;
+$black-s8: #e3e3e3;
+$black-s9: #d4d4d4;
+$black-s10: #cccccc;
+$black-s11: #8c9196;
+$black-s12: #6d7175;
+$black-s13: #616161;
+$black-s14: #4a4a4a;
+$black-s15: #303030;
+$black-s16: #1a1a1a; /* base */
+
+$red-s1: #fff4f4;
+$red-s2: #ffa7a3;
+$red-s3: #e66767;
+$red-s4: #d82c0d; /* base */
+$red-s5: #b5260b;
+$red-s6: #8e1f0b;
+$red-s7: #d82c0d;
+$red-s8: #d82c0d;
+$red-s9: #d82c0d;
+$red-s10: #d82c0d;
+$red-s11: #d82c0d;
+$red-s12: #d82c0d;
+$red-s13: #d82c0d;
+$red-s14: #d82c0d;
+$red-s15: #d82c0d;
+$red-s16: #d82c0d;
+
+$yellow-s1: #fff5ea;
+$yellow-s2: #e1b878;
+$yellow-s3: #ffb800;
+$yellow-s4: #e5a500;
+$yellow-s5: #b98900; /* base */
+$yellow-s6: #b28400;
+$yellow-s7: #b98900;
+$yellow-s8: #b98900;
+$yellow-s9: #b98900;
+$yellow-s10: #b98900;
+$yellow-s11: #b98900;
+$yellow-s12: #b98900;
+$yellow-s13: #b98900;
+$yellow-s14: #b98900;
+$yellow-s15: #b98900;
+$yellow-s16: #b98900;
+
+$green-s1: #f1f8f5;
+$green-s2: #95c9b4;
+$green-s3: #008060; /* base */
+$green-s4: #136f45;
+$green-s5: #0c5132;
+$green-s6: #008060;
+$green-s7: #008060;
+$green-s8: #008060;
+$green-s9: #008060;
+$green-s10: #008060;
+$green-s11: #008060;
+$green-s12: #008060;
+$green-s13: #008060;
+$green-s14: #008060;
+$green-s15: #008060;
+$green-s16: #008060;
+
+$teal-s1: #ebf9fc;
+$teal-s2: #98c6cd;
+$teal-s3: #00a0ac; /* base */
+$teal-s4: #007a83;
+$teal-s5: #00545a;
+$teal-s6: #00a0ac;
+$teal-s7: #00a0ac;
+$teal-s8: #00a0ac;
+$teal-s9: #00a0ac;
+$teal-s10: #00a0ac;
+$teal-s11: #00a0ac;
+$teal-s12: #00a0ac;
+$teal-s13: #00a0ac;
+$teal-s14: #00a0ac;
+$teal-s15: #00a0ac;
+$teal-s16: #00a0ac;
+
+$blue-s1: #005bd3; /* base */
+$blue-s2: #004299;
+$blue-s3: #002e6a;
+$blue-s4: #dfedff;
+$blue-s5: #005bd3;
+$blue-s6: #005bd3;
+$blue-s7: #005bd3;
+$blue-s8: #005bd3;
+$blue-s9: #005bd3;
+$blue-s10: #005bd3;
+$blue-s11: #005bd3;
+$blue-s12: #005bd3;
+$blue-s13: #005bd3;
+$blue-s14: #005bd3;
+$blue-s15: #005bd3;
+$blue-s16: #005bd3;
+
+$purple-s1: #5f27cd; /* base */
+$purple-s2: #5f27cd;
+$purple-s3: #5f27cd;
+$purple-s4: #5f27cd;
+$purple-s5: #5f27cd;
+$purple-s6: #5f27cd;
+$purple-s7: #5f27cd;
+$purple-s8: #5f27cd;
+$purple-s9: #5f27cd;
+$purple-s10: #5f27cd;
+$purple-s11: #5f27cd;
+$purple-s12: #5f27cd;
+$purple-s13: #5f27cd;
+$purple-s14: #5f27cd;
+$purple-s15: #5f27cd;
+$purple-s16: #5f27cd;
+
+$colors: (
+  black: (
+    s1: #ffffff,
+    s2: #fdfdfd,
+    s3: #fafafa,
+    s4: #f7f7f7,
+    s5: #f3f3f3,
+    s6: #f1f1f1,
+    s7: #ebebeb,
+    s8: #e3e3e3,
+    s9: #d4d4d4,
+    s10: #cccccc,
+    s11: #b5b5b5,
+    s12: #8a8a8a,
+    s13: #616161,
+    s14: #4a4a4a,
+    s15: #303030,
+    /* base */ s16: #1a1a1a,
+  ),
+  red: (
+    s1: #fff4f4,
+    s2: #ffa7a3,
+    s3: #e66767,
+    /* base */ s4: #d82c0d,
+    s5: #b5260b,
+    s6: #8e1f0b,
+    s7: #d82c0d,
+    s8: #d82c0d,
+    s9: #d82c0d,
+    s10: #d82c0d,
+    s11: #d82c0d,
+    s12: #d82c0d,
+    s13: #d82c0d,
+    s14: #d82c0d,
+    s15: #d82c0d,
+    s16: #d82c0d,
+  ),
+  yellow: (
+    s1: #fff5ea,
+    s2: #e1bb78,
+    s3: #ffb800,
+    s4: #e5a500,
+    /* base */ s5: #b98900,
+    s6: #b28400,
+    s7: #b98900,
+    s8: #b98900,
+    s9: #b98900,
+    s10: #b98900,
+    s11: #b98900,
+    s12: #b98900,
+    s13: #b98900,
+    s14: #b98900,
+    s15: #b98900,
+    s16: #b98900,
+  ),
+  green: (
+    s1: #f1f8f5,
+    s2: #95c9b4,
+    s3: #008060,
+    s4: #136f45,
+    s5: #0c5132,
+    /* base */ s6: #008060,
+    s7: #008060,
+    s8: #008060,
+    s9: #008060,
+    s10: #008060,
+    s11: #008060,
+    s12: #008060,
+    s13: #008060,
+    s14: #008060,
+    s15: #008060,
+    s16: #008060,
+  ),
+  teal: (
+    s1: #ebf9fc,
+    s2: #98c6cd,
+    /* base */ s3: #00a0ac,
+    s4: #007a83,
+    s5: #00545a,
+    s6: #00a0ac,
+    s7: #00a0ac,
+    s8: #00a0ac,
+    s9: #00a0ac,
+    s10: #00a0ac,
+    s11: #00a0ac,
+    s12: #00a0ac,
+    s13: #00a0ac,
+    s14: #00a0ac,
+    s15: #00a0ac,
+    s16: #00a0ac,
+  ),
+  blue: (
+    s1: #005bd3,
+    s2: #004299,
+    s3: #002e6a,
+    /* base */ s4: #005bd3,
+    s5: #005bd3,
+    s6: #005bd3,
+    s7: #005bd3,
+    s8: #005bd3,
+    s9: #005bd3,
+    s10: #005bd3,
+    s11: #005bd3,
+    s12: #005bd3,
+    s13: #005bd3,
+    s14: #005bd3,
+    s15: #005bd3,
+    s16: #005bd3,
+  ),
+  purple: (
+    /* base */ s1: #5f27cd,
+    s2: #5f27cd,
+    s3: #5f27cd,
+    s4: #5f27cd,
+    s5: #5f27cd,
+    s6: #5f27cd,
+    s7: #5f27cd,
+    s8: #5f27cd,
+    s9: #5f27cd,
+    s10: #5f27cd,
+    s11: #5f27cd,
+    s12: #5f27cd,
+    s13: #5f27cd,
+    s14: #5f27cd,
+    s15: #5f27cd,
+    s16: #5f27cd,
+  ),
+);
+
+/* ********************************
+* 👍 SPACE 
+***********************************/
+
+$space-0: 0rem;
+$space-10: 0.063rem;
+$space-20: 0.125rem;
+$space-30: 0.25rem;
+$space-40: 0.375rem;
+$space-50: 0.5rem;
+$space-60: 0.75rem;
+$space-70: 1rem;
+$space-80: 1.25rem;
+$space-90: 1.5rem;
+$space-100: 2rem;
+$space-110: 3rem;
+$space-120: 3rem;
+$space-130: 4rem;
+$space-140: 5.5rem;
+$space-150: 6rem;
+$space-160: 8rem;
+
+$space: (
+  0: 0rem,
+  10: 0.063rem,
+  20: 0.125rem,
+  30: 0.25rem,
+  40: 0.375rem,
+  50: 0.5rem,
+  60: 0.75rem,
+  70: 1rem,
+  80: 1.25rem,
+  90: 1.5rem,
+  100: 2rem,
+  110: 3rem,
+  120: 3rem,
+  130: 4rem,
+  140: 5.5rem,
+  150: 6rem,
+  160: 8rem,
+);
+
+/* ********************************
+* 👍 TEXT 
+***********************************/
+$headings: h1, h2, h3, h4, h5, h6;
+$text-sizes: xs, lg;
+$text-tags: p, span, a, strong;
+$text-responsive-sizes: xs, sm, md, lg;
+$text-decoration-map: (
+  default: default,
+  line-through: line-through,
+  underline: underline,
+  overline: overline,
+  super-line: underline overline,
+);
+$text-align-map: (
+  start: start,
+  center: center,
+  end: end,
+  justify: justify,
+  inherit: inherit,
+  initial: initial,
+);
+
+/* ********************************
+* 👍 INPUT 
+***********************************/
+$input-sizes-map: (
+  xs: 1.75rem,
+  sm: 2rem,
+  md: 2.25rem,
+  lg: 2.5rem,
+);
+/* ********************************
+* 👍 BUTTON 
+***********************************/
+$button-sizes-map: xs, sm, md, lg;
+
+/* ********************************
+* 👍 TEXT AREA 
+***********************************/
+$textareaSizes-map: (
+  sm: 4.375rem,
+  md: 5.625rem,
+  lg: 6.875rem,
+);
+
+/* ********************************
+* 👍 BORDER
+***********************************/
+$border-radius-map: (
+  0: 0,
+  1: 0.0625,
+  2: 0.125,
+  3: 0.1875,
+  4: 0.25,
+  5: 0.3125,
+  6: 0.375,
+  7: 0.4375,
+  8: 0.5,
+  9: 0.5625,
+  10: 0.625,
+  11: 0.6875,
+  12: 0.75,
+  13: 0.8125,
+  14: 0.875,
+  15: 0.9375,
+  16: 1,
+  17: 1.0625,
+  18: 1.125,
+  19: 1.1875,
+  20: 1.25,
+  50: 50,
+);
+
+$border-width: 1, 2, 3, 4, 5;
+$border-style-map: (
+  dashed: dashed,
+  dotted: dotted,
+  solid: solid,
+  double: double,
+  groove: groove,
+  ridge: ridge,
+  inset: inset,
+  none: none,
+  hidden: hidden,
+);
+
+/* ********************************
+* 👍 OVERFLOW
+***********************************/
+$overflow-map: (
+  hidden: hidden,
+  scroll: scroll,
+  auto: auto,
+  visible: visible,
+  clip: clip,
+);
+
+/* ********************************
+* 👍 POSITION
+***********************************/
+$position-map: (
+  relative: relative,
+  absolute: absolute,
+  fixed: fixed,
+  sticky: sticky,
+  inherit: inherit,
+  static: static,
+);
+
+/* ********************************
+* 👍 GRID
+***********************************/
+$grid-cols-map: (
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+  10: 10,
+  11: 11,
+  12: 12,
+);
+
+/* ********************************
+* 👍 FLEX BOX
+***********************************/
+$justify-content-map: (
+  start: start,
+  end: end,
+  safe-end: safe end,
+  center: center,
+  safe-center: safe center,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly,
+  stretch: stretch,
+  baseline: baseline,
+  normal: normal,
+  inherit: inherit,
+  initial: initial,
+);
+
+$align-items-map: (
+  normal: normal,
+  stretch: stretch,
+  center: center,
+  safe-center: safe center,
+  start: start,
+  end: end,
+  safe-end: safe end,
+  baseline: baseline,
+  initial: initial,
+  inherit: inherit,
+);
+
+$justify-items-map: (
+  start: start,
+  end: end,
+  safe-end: safe end,
+  center: center,
+  safe-center: safe center,
+  stretch: stretch,
+  normal: normal,
+);
+$justify-self-map: (
+  self-auto: auto,
+  self-start: start,
+  self-center: center,
+  self-center-safe: safe center,
+  self-end: end,
+  self-end-safe: safe end,
+  self-stretch: stretch,
+);
+$align-content-map: (
+  normal: normal,
+  center: center,
+  start: start,
+  end: end,
+  space-between: space-between,
+  space-around: space-around,
+  space-evenly: space-evenly,
+  baseline: baseline,
+  stretch: stretch,
+);
+
+$flex-order-map: (
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  6: 6,
+  7: 7,
+  8: 8,
+  9: 9,
+);
+$flex-wrap-map: (
+  nowrap: nowrap,
+  wrap: wrap,
+  wrap-reverse: wrap-reverse,
+  initial: initial,
+  inherit: inherit,
+);
+$flex-direction-map: (
+  row: row,
+  row-reverse: row-reverse,
+  col: column,
+  col-reverse: column-reverse,
+  initial: initial,
+  inherit: inherit,
+);
+$row-direction-map: (
+  row: row,
+  row-reverse: row-reverse,
+);
+$column-direction-map: (
+  col: row,
+  col-reverse: column-reverse,
+);
+
+/* ********************************
+* 👍 WORD BREAK
+***********************************/
+$word-break-map: (
+  auto-phrase: auto-phrase,
+  break-all: break-all,
+  break-word: break-word,
+  keep-all: keep-all,
+  normal: normal,
+  inherit: inherit,
+  initial: initial,
+  revert: revert,
+  revert-layer: revert-layer,
+  unset: unset,
+);
+
+/* ********************************
+* 👍 TRUNCATE
+***********************************/
+$text-truncate-map: (
+  truncate-1: 1,
+  truncate-2: 2,
+  truncate-3: 3,
+  truncate-4: 4,
+  truncate-5: 5,
+  truncate-6: 6,
+  truncate-7: 7,
+  truncate-8: 8,
+  truncate-9: 9,
+  truncate-10: 10,
+);
+
+/* ********************************
+* 👍 HOVER
+***********************************/
+$text-hover-map: (
+  hover: hover,
+  none: none,
+);
+
+/* ********************************
+* 👍 MODAL
+***********************************/
+$modal-sizes-map: (
+  xs: 360px,
+  sm: 520px,
+  md: 680px,
+  lg: 840px,
+  xl: 980px,
+);
+
+/* ********************************
+* 👍 TABLE
+***********************************/
+$table-sizes-map: (
+  xs: 600px,
+  sm: 864px,
+  md: 1000px,
+  lg: 1200px,
+);
+
+/* ********************************
+* 👍 PAGINATION
+***********************************/
+$pagination-sizes-map: (
+  sm: 28px,
+  md: 32px,
+  lg: 36px,
+);
+
+/* ********************************
+* 👍 SKELETON
+***********************************/
+$skeleton-body-text-sizes-map: (
+  xs: $space-40,
+  sm: $space-50,
+  md: $space-60,
+  lg: $space-70,
+);
+$skeleton-display-text-sizes-map: (
+  xs: $space-80,
+  sm: $space-90,
+  md: $space-100,
+  lg: $space-120,
+);
+$skeleton-thumbnail-map: (
+  xs: 1.5rem,
+  sm: 2.5rem,
+  md: 3.75rem,
+  lg: 5rem,
+  auto: "auto",
+);
+
+/* ********************************
+* 👍 BREAKPOINT
+***********************************/
+$breakpoints-map: (
+  xs: 16rem,
+  sm: 36rem,
+  md: 48rem,
+  lg: 64rem,
+  xl: 85.375rem,
+);
+/* ********************************
+* 👍 Start Animation Timing Function
+***********************************/
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$animate-spin: spin 1s linear infinite;
+$animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+$animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+$animate-bounce: bounce 1s infinite;
+$animation-timing-function-map: (
+  ease-in: cubic-bezier(0.4, 0, 1, 1),
+  ease-out: cubic-bezier(0, 0, 0.2, 1),
+  ease-in-out: cubic-bezier(0.4, 0, 0.2, 1),
+  animate-spin: linear infinite,
+  animate-ping: cubic-bezier(0, 0, 0.2, 1) infinite,
+  animate-pulse: cubic-bezier(0.4, 0, 0.6, 1) infinite,
+  animate-bounce: infinite,
+);
+
+/* ********************************
+* 👍 SHADOW
+***********************************/
+$shadow-map: (
+  none: (
+    0px 0px 0px 0px transparent,
+  ),
+  xs: (
+    0px 4px 8px 0px #30303014,
+    0px -2px 4px 0px #0000000f,
+    /* use for stack*/
+  ),
+  sm: (
+    0px 1px 2px 0px rgba(48, 48, 48, 0.1) /*   use for card */,
+  ),
+  md: (
+    1px 0px 0px 0px #00000021 inset,
+    -1px 0px 0px 0px #00000021 inset,
+    0px -1px 0px 0px #0000002b inset,
+    0px 1px 0px 0px #cccccc80 inset,
+    0px 3px 1px -1px #1a1a1a12 /*use for banner*/,
+  ),
+  lg: (
+    0 2px 8px rgba(0, 0, 0, 0.3),
+  ),
+  xl: (
+    0px 10px 20px 0px #30303014,
+    0px -5px 10px 0px #0000000f,
+  ),
+  xxl: (
+    1px 0px 0px 0px #00000021 inset,
+    -1px 0px 0px 0px #00000021 inset,
+    0px -1px 0px 0px #0000002b inset,
+    0px 1px 0px 0px #cccccc80 inset,
+    0px 3px 1px -1px #1a1a1a12 /* use for banner*/,
+  ),
+);
+
+$shadow-white: 0rem -0.0625rem 0rem 0rem #ffffff inset, 0rem 0rem 0rem 0.0625rem #ffffff inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+
+// Black Shadow
+$shadow-primary: 0rem -0.0625rem 0rem 0rem #303030 inset, 0rem 0rem 0rem 0.0625rem rgba(48, 48, 48, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #303030 inset;
+
+// Red Shadow
+$shadow-danger: 0rem -0.0625rem 0rem 0rem #d82c0d inset, 0rem 0rem 0rem 0.0625rem rgba(216, 44, 13, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+
+// Yellow Shadow
+$shadow-warning: 0rem -0.0625rem 0rem 0rem #b98900 inset, 0rem 0rem 0rem 0.0625rem rgba(185, 137, 0, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+
+// Green Shadow
+$shadow-success: 0rem -0.0625rem 0rem 0rem #00a0ac inset, 0rem 0rem 0rem 0.0625rem rgba(0, 160, 172, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+
+// Teal Shadow
+$shadow-info: 0rem -0.0625rem 0rem 0rem #008060 inset, 0rem 0rem 0rem 0.0625rem rgba(0, 128, 96, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+
+// Blue Shadow
+$shadow-blue: 0rem -0.0625rem 0rem 0rem #005bd3 inset, 0rem 0rem 0rem 0.0625rem rgba(0, 91, 211, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+
+// Purple Shadow
+$shadow-purple: 0rem -0.0625rem 0rem 0rem #5f27cd inset, 0rem 0rem 0rem 0.0625rem rgba(95, 39, 205, 0.1) inset,
+  0rem 0.03125rem 0rem 0.09375rem #fff inset;
+/*************************
+* DIVIDER COLOR
+*************************/
+$divider-map: (
+  default: $black-s7,
+  base: $black-s11,
+  dark: $black-s16,
+);
+/*************************
+  * SNACKBAR
+*************************/
+$snackbar-position: bottom-left, bottom-center, bottom-right, top-left, top-center, top-right;

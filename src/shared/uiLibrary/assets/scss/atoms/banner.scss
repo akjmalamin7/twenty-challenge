@@ -1,0 +1,77 @@
+@use "../foundation/all" as *;
+@use "sass:map";
+
+$banner-variant-bg: (
+  success: $sds-color-bg-fill-success-secondary,
+  warning: $sds-color-bg-fill-warning-secondary,
+  info: $sds-color-bg-fill-info-secondary,
+  danger: $sds-color-bg-fill-critical-secondary,
+);
+
+@mixin banner-body-bg {
+  @each $variant, $color in $banner-variant-bg {
+    &--body-bg--color-#{$variant} {
+      background-color: $color;
+      @content;
+    }
+  }
+}
+
+.banner {
+  overflow: hidden;
+  @include generate-radius();
+  /*************************
+  * banner border
+  *************************/
+  &.border {
+    border: 1px solid transparent;
+  }
+  @include generate-border-color();
+
+  /*************************
+  * banner variant icon style
+  *************************/
+  .banner--header-left {
+    @include flexbox(start, center, $space-60);
+    .banner--icon {
+      svg path {
+        fill: currentColor;
+      }
+    }
+  }
+  .banner--header-right {
+    @include flexbox();
+  }
+
+  &.banner--shadow {
+    @include apply-shadow("xxl");
+  }
+  /*************************
+  * banner variant bg
+  *************************/
+  @include banner-body-bg();
+
+  /*************************
+  * banner body
+  *************************/
+  .banner--body {
+    padding: $space-60;
+    @include flexbox(_, start, $space-60);
+    .banner--icon,
+    .banner--close-icon {
+      width: 20px;
+    }
+    .banner--close-icon {
+      @include flexbox(center);
+    }
+    .banner--actions {
+      margin-top: 8px;
+      &.banner--actions-gap {
+        margin-top: 20px;
+      }
+    }
+  }
+  .banner--icon {
+    @include flexbox();
+  }
+}

@@ -1,0 +1,57 @@
+@use "../foundation/all" as *;
+
+.spinner {
+  border-radius: 50%;
+  will-change: transform;
+  animation: spin 700ms infinite linear;
+  display: block;
+  border-style: solid;
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+
+.spinner--xsm {
+  height: $space-70;
+  width: $space-70;
+  border-width: 2px;
+}
+
+.spinner--sm {
+  height: $space-80;
+  width: $space-80;
+  border-width: 2.5px;
+}
+
+.spinner--md {
+  height: $space-100;
+  width: $space-100;
+  border-width: 2.5px;
+}
+
+.spinner--lg {
+  height: $space-110;
+  width: $space-110;
+  border-width: 3px;
+}
+
+.spinner--xlg {
+  height: $space-130;
+  width: $space-130;
+  border-width: 3px;
+}
+
+.spinner--variant-default {
+  border-color: $sds-color-bg-surface-secondary;
+}
+.spinner--variant-white {
+  border-color: $sds-color-bg-surface;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,26 @@
+@use "../foundation/all" as *;
+
+.inline--stack {
+  box-sizing: border-box;
+  width: 100%;
+  @include flexbox(_, _, _, row);
+  @include generate-bg();
+  @include generate-padding();
+  @include generate-shadow();
+  /* flex */
+  @include generate-gap();
+  @include generate-justify-content();
+  @include generate-row-direction();
+  @include generate-flex-wrap();
+  @include generate-align-items();
+  @include generate-flex-direction();
+  /* position */
+  @include generate-position();
+  @include generate-position-gap-property();
+  /* border */
+  @include generate-radius();
+  @include generate-border();
+  @include generate-border-color();
+  @include generate-border-style();
+  @include generate-border-width();
+}

@@ -1,0 +1,99 @@
+@use "../foundation/all" as *;
+
+.btn {
+  position: relative;
+  box-shadow: 0px -1.5px 0px 0px #0000004d inset, 0px 1px 0px 0px #00000014;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  @include flexbox(center, center, $space-30);
+  @include generate-font-weight();
+  @include laptop {
+    cursor: pointer;
+  }
+  /*************************
+* button sizes
+*************************/
+  @include generate-button-sizes();
+}
+
+/*************************
+   * color and variant
+*************************/
+@include button-variant-and-color();
+/*************************
+* link
+*************************/
+.btn--link {
+  color: $sds-color-text-link;
+  @include border--height-padding--reset();
+  @include bg--shadow-reset();
+  &:hover {
+    color: $sds-color-text-link-hover;
+    @include bg--shadow-reset();
+  }
+}
+/*************************
+   * Disabled
+*************************/
+.btn--disabled,
+.btn--disabled.btn--solid,
+.btn--disabled.btn--outline {
+  background-color: $sds-color-bg-fill-brand-disable;
+  color: $sds-color-text-disable;
+  border-color: $sds-color-bg-fill-brand-disable;
+  box-shadow: unset;
+  cursor: default;
+  &.btn--disabled:hover {
+    background-color: $sds-color-bg-fill-brand-disable;
+    cursor: default;
+  }
+}
+.btn--disabled.btn--plain,
+.btn--disabled.btn--link {
+  color: $sds-color-bg-fill-brand-disable;
+  @include bg--shadow-border--reset();
+  &:hover {
+    color: $sds-color-bg-fill-brand-disable;
+    background-color: transparent;
+  }
+}
+
+.btn--block {
+  width: 100%;
+}
+/*************************
+   * Loading
+*************************/
+.btn--loading {
+  position: absolute;
+  @include flexbox(center, center);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-color: $sds-color-bg-surface-secondary !important;
+  box-shadow: none;
+  color: $sds-color-text-white;
+  cursor: default;
+  pointer-events: none;
+  z-index: 2;
+}
+.loading--bg {
+  background-color: $sds-color-bg-surface-secondary !important;
+  border: 2px solid transparent !important;
+  box-shadow: none !important;
+}
+.btn--link .btn--loading,
+.btn--plain .btn--loading {
+  color: $sds-color-bg-fill-brand-disable !important;
+  background-color: $sds-color-bg-surface !important;
+}
+.btn--link.loading,
+.btn--plain.loading {
+  height: 24px;
+}
+
+/*************************
+   * responsive
+*************************/

@@ -1,0 +1,20 @@
+/*********************************
+* TABLE OF CONTENT
+**********************************/
+
+/*********************************
+**********************************
+**** - ✅ ALL.SCSS FILES IS THE MAIN FILE. HERE IMPORTED ALL SCSS FILES
+**** - ✅ VARIABLE
+**** - ✅ COLOR
+**** - ✅ SHADOW
+**** - ✅ TYPOGRAPHY
+**** - ✅ MIXIN
+***********************************
+***********************************/
+
+@forward "./variables";
+@forward "./color";
+@forward "./shadow";
+@forward "./typography";
+@forward "./mixin";

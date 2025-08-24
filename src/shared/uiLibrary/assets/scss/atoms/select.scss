@@ -1,0 +1,48 @@
+@use "../foundation/all" as *;
+.select {
+  width: 100%;
+  &--label {
+    @include flexbox(space-between, center);
+    margin-bottom: 4px;
+  }
+  &--field-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  & .select--field {
+    width: 100%;
+    height: 100%;
+    padding: 0px 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #b9b3ae;
+    background-color: transparent;
+    font-family: $font-family-inter;
+    color: $black_s15;
+    appearance: none;
+
+    &:focus {
+      outline: 2px solid $blue-s1;
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+    @include generate-input-error-message(select);
+    &.select--disabled {
+      background-color: $black-s4;
+      border-color: #d2d5d8;
+      opacity: 0.4;
+    }
+    @include font($sds-text-body-md-font-size, $font-weight-regular, $sds-text-body-md-line-height);
+  }
+  &--arrow-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    @include flexbox(center, center);
+  }
+  @include generate-default-input-heights(select);
+  @include generate-responsive-input-heights(select);
+}

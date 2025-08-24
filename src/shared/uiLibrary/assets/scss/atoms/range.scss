@@ -1,0 +1,80 @@
+@use "../foundation/all" as *;
+.range {
+  /*************************
+* Slider + Input Field
+*************************/
+
+  &--slider {
+    position: relative;
+    @include flexbox(center, center);
+    user-select: none;
+    flex-grow: 1;
+  }
+  &--slider-layout {
+    @include flexbox(start, center, $space-60);
+    &.range--layout-style-reverse {
+      @include flexbox(start, center, _, row-reverse);
+    }
+    .range--value-field {
+      width: 100px;
+    }
+  }
+  &--slider-progress {
+    width: 0px;
+    height: 4px;
+    border-radius: 3px;
+    background: $sds-color-bg-inverse;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  &--slider-field {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    outline: none;
+    border-radius: 3px;
+    background-color: $sds-color-bg-fill-brand-disable;
+    cursor: pointer;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      background-color: $sds-color-bg-surface;
+      border: 2px solid $sds-color-bg-inverse;
+      border-radius: 50%;
+      position: relative;
+      z-index: 3;
+      margin-left: 1px;
+      margin-top: -1px;
+    }
+    // Firefox Thumb
+    &::-moz-range-thumb {
+      -moz-appearance: none;
+      width: 15px;
+      height: 15px;
+      background-color: $sds-color-bg-surface;
+      border: 2px solid $sds-color-bg-inverse;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      z-index: 9999;
+    }
+    &::-moz-range-track {
+      background-color: $sds-color-bg-fill-brand-disable;
+      height: 4px;
+      border-radius: 3px;
+    }
+    &::-moz-range-progress {
+      background-color: $sds-color-bg-inverse;
+      height: 4px;
+      border-radius: 3px;
+      z-index: 1;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@use "../foundation/all" as *;
+.page {
+  /************************
+   * Page Header
+  ************************/
+  &--header-wrapper {
+    margin-bottom: 20px;
+    @include tablet {
+      margin-bottom: 24px;
+    }
+  }
+  &--header {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 10px;
+    @include tablet {
+      @include flexbox(space-between, start, _, _);
+    }
+  }
+  &--header-back--button {
+    order: 0;
+    grid-column: 1 / 2;
+    @include flexbox(_, center, _, _);
+    @include tablet {
+      order: unset;
+      grid-column: auto;
+      align-items: start;
+    }
+  }
+  &--header-title {
+    order: 1;
+    grid-column: 1 / -1;
+    @include tablet {
+      order: unset;
+    }
+  }
+  &--header-title-text {
+    @include flexbox(start, center, 10px);
+  }
+  &--header-buttons {
+    grid-column: 2/ -1;
+    @include flexbox(end, center, 10px);
+    @include tablet {
+      @include flexbox(end, center, 10px);
+      flex: 1 1 auto;
+    }
+  }
+  &--subtitle-max-width {
+    @include tablet {
+      padding-left: 22px;
+    }
+  }
+  /************************
+   * Page Content
+  ************************/
+}

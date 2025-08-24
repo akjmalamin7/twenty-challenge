@@ -1,0 +1,60 @@
+@use "../foundation/all" as *;
+
+.snackbar--wrapper {
+  position: fixed;
+  gap: 6px;
+  z-index: 9999;
+  @include flexbox(_, _, _, column);
+  @include generate-snackbar-position();
+}
+
+.snackbar {
+  position: relative;
+  z-index: 99991;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  gap: 12px;
+  animation: slideIn 0.3s ease forwards;
+  cursor: pointer;
+  color: $sds-color-bg-inverse;
+  width: 200px;
+  @include flexbox(start, center, 12px);
+  @include generate-bg();
+
+  &--content {
+    flex-grow: 1;
+    @include flexbox(start);
+  }
+  &--action {
+    flex-grow: 1;
+    justify-content: start !important;
+  }
+
+  .snackbar--close {
+    width: 20px;
+    padding: 0px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: unset;
+    & svg {
+      width: 8px;
+      height: 8px;
+    }
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

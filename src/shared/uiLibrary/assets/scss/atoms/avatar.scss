@@ -1,0 +1,56 @@
+@use "../foundation/all" as *;
+.avatar {
+  position: relative;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @include flexbox(center, center, 2px);
+  @include generate-user-avatar-size();
+  @include generate-radius();
+  & .avatar-image {
+    @include generate-radius();
+  }
+  .name {
+    letter-spacing: 1px;
+  }
+  .avatar-edit {
+    position: absolute;
+    bottom: -13px;
+    left: -13px;
+    & .edit-button {
+      padding: 5px 10px;
+      height: auto;
+      width: 70px;
+    }
+  }
+  @include laptop {
+    cursor: pointer;
+  }
+}
+
+.avatart--dropdown {
+  width: 160px;
+  background: white;
+  border-radius: 8px;
+  .menu {
+    list-style: none;
+    padding: 4px 0;
+    margin: 0;
+    .menu--item {
+      .input {
+        display: none;
+      }
+    }
+    .menu--item-button {
+      width: 100%;
+      padding: 3px 10px;
+      border-radius: 0;
+      justify-content: flex-start;
+      &:hover {
+        background: $black-s6;
+      }
+    }
+  }
+}

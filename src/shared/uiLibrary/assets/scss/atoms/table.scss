@@ -1,0 +1,81 @@
+@use "../foundation/all" as *;
+.table {
+  &--element {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: $sds-color-bg-surface;
+    @include generate-table-size();
+    @include generate-table-border-variants();
+  }
+  .table-sticky--sticky {
+    position: sticky;
+    top: auto;
+    background-color: $sds-color-bg-surface;
+    z-index: 1;
+  }
+  /********************************
+  * Table Head
+  **********************************/
+  &--head {
+    vertical-align: bottom;
+    border-bottom: 1px solid $sds-color-border;
+    background-color: $sds-color-bg-surface-selected;
+    &.table--head-transparent {
+      background-color: transparent;
+    }
+    th {
+      padding: 10px;
+      width: auto;
+      & p {
+        @include generate-text-align();
+      }
+      & svg,
+      & button svg,
+      & svg path,
+      & button svg path {
+        fill: $sds-color-icon !important;
+      }
+      @include generate-text-align();
+    }
+  }
+
+  /********************************
+  * Table Body
+  **********************************/
+  &--body {
+    position: relative;
+  }
+  &--row {
+    &.hover:hover {
+      background-color: rgb(247 247 247 / 60%);
+    }
+    & td {
+      padding: 10px;
+      width: auto;
+      & p {
+        @include generate-text-align();
+      }
+      & svg,
+      & button svg,
+      & svg path,
+      & button svg path {
+        fill: $sds-color-icon !important;
+      }
+      @include generate-text-align();
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid $sds-color-border;
+    }
+    /* striped */
+    @include generate-table-striped();
+  }
+  @include laptop {
+    .cursor_pointer {
+      cursor: pointer;
+    }
+  }
+  /********************************
+  * scroll
+  **********************************/
+  @include generate-table-scroll();
+}

@@ -1,0 +1,57 @@
+@use "../foundation/all" as *;
+// src/scss/atoms/tooltip.scss
+
+.tooltip {
+  position: absolute;
+  z-index: 9999;
+  background-color: $sds-color-bg-inverse;
+  color: $sds-color-bg-surface;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0.95;
+  box-shadow: 0 2px 6px $sds-color-bg-inverse;
+  transition: opacity 0.2s ease;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  pointer-events: none;
+
+  &.top {
+    bottom: -6px;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px 6px 0 6px;
+    border-color: $sds-color-bg-inverse transparent transparent transparent;
+  }
+
+  &.bottom {
+    top: -6px;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent $sds-color-bg-inverse transparent;
+  }
+
+  &.left {
+    top: 50%;
+    right: -6px;
+    margin-top: -6px;
+    border-width: 6px 0 6px 6px;
+    border-color: transparent transparent transparent $sds-color-bg-inverse;
+  }
+
+  &.right {
+    top: 50%;
+    left: -6px;
+    margin-top: -6px;
+    border-width: 6px 6px 6px 0;
+    border-color: transparent $sds-color-bg-inverse transparent transparent;
+  }
+}

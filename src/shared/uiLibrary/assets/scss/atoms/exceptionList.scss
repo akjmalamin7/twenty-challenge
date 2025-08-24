@@ -1,0 +1,8 @@
+@use "../foundation/all" as *;
+.exception {
+  @include flexbox(_, center, $space-30);
+  &--icon,
+  span {
+    @include flexbox();
+  }
+}

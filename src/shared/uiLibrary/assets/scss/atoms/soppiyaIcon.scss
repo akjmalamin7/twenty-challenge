@@ -1,0 +1,12 @@
+@use "../foundation/all" as *;
+.icon {
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  -webkit-mask-position: center;
+  display: inline-block;
+  @include generate-soppiya-icon-bg();
+  @include generate-soppiya-icon-size();
+}

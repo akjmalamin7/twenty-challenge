@@ -1,0 +1,22 @@
+@use "../foundation/all" as *;
+
+.block--stack {
+  width: 100%;
+  @include flexbox(_, _, _, column);
+  @include generate-bg();
+  @include generate-padding();
+  @include generate-shadow();
+  /* position */
+  @include generate-position();
+  @include generate-position-gap-property();
+  /* border */
+  @include generate-radius();
+  @include generate-border();
+  @include generate-border-color();
+  @include generate-border-style();
+  @include generate-border-width();
+  /* flex */
+  @include generate-gap();
+  @include generate-justify-content();
+  @include generate-align-items();
+}

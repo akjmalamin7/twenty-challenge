@@ -1,0 +1,7 @@
+@use "../foundation/all" as *;
+.divider {
+  width: 100%;
+  height: 1px;
+  @include generate-divider-style();
+  @include generate-border-style();
+}

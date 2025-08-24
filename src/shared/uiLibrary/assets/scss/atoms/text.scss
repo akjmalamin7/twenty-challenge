@@ -1,0 +1,44 @@
+@use "../foundation/all" as *;
+
+.text {
+  padding: $space-0;
+  margin: $space-0;
+  font-family: $sds-text-heading-3xl-font-family;
+  &a,
+  span,
+  strong {
+    display: inline-block;
+  }
+
+  /****************************
+  *  text alignment
+  *****************************/
+
+  @include generate-text-align();
+  /****************************
+  *  font-weight
+  *****************************/
+  @include generate-font-weight();
+  /****************************
+  * word break
+  ****************************/
+  @include generate-word-break();
+  /****************************
+  * truncate
+  *****************************/
+  @include generate-text-truncate();
+  /****************************
+  *  text color
+  *****************************/
+
+  @include generate-text-color();
+  /****************************
+  *  text decoration
+  *****************************/
+  @include generate-text-decoration();
+  @include generate-heading();
+  @include generate-body-text();
+  @include generate-strong-text();
+  @include generate-span-text();
+  @include generate-a-text();
+}

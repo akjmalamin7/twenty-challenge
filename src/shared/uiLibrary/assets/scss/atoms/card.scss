@@ -1,0 +1,9 @@
+@use "../foundation/all" as *;
+.card {
+  background: $black-s1;
+  width: 100%;
+  @include generate-padding();
+  @include generate-shadow();
+  @include generate-radius();
+  @include generate-bg();
+}

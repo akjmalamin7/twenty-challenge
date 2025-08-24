@@ -1,0 +1,42 @@
+@use "../foundation/all" as *;
+@mixin margin-bottom-4 {
+  .list--item {
+    margin-bottom: 4px;
+  }
+}
+.list {
+  margin: 0;
+  /* flex */
+  @include generate-display();
+  @include generate-gap();
+  @include generate-justify-content();
+  @include generate-row-direction();
+  @include generate-flex-wrap();
+  @include generate-align-items();
+  @include generate-flex-direction();
+  @include generate-padding();
+  .list--item {
+    font-size: $sds-text-body-md-font-size;
+  }
+  &.list--type-none {
+    list-style: none;
+    padding-left: 0;
+  }
+  &.list--type-bullet {
+    list-style-type: disc;
+    padding-left: 1rem;
+    @include margin-bottom-4();
+  }
+
+  &.list--type-number {
+    list-style-type: decimal;
+    padding-left: 1rem;
+    @include margin-bottom-4();
+  }
+
+  &.list--type-extraTight {
+    list-style: disc none outside;
+    padding-left: 1rem;
+    @include margin-bottom-4();
+  }
+}

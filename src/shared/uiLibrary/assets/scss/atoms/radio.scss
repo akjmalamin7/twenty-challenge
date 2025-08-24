@@ -1,0 +1,56 @@
+@use "../foundation/all" as *;
+
+.radio {
+  /*************************
+ * Input field wrapper
+ *************************/
+  &--field-wrapper {
+    @include flexbox(_, top, 10px);
+    position: relative;
+    &.radio--label-position--center {
+      align-items: center;
+    }
+  }
+  /*************************
+ * Input field
+ *************************/
+  &--field {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    outline: none;
+    position: relative;
+    box-shadow: inset 0 0 0 2px #aeb4b9;
+    cursor: pointer;
+    @include flexbox(_, start, 10px);
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @include generate-radio-color();
+  }
+  /*************************
+ * Input field disabled
+ *************************/
+  &.radio--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  @include laptop {
+    & label {
+      cursor: pointer;
+    }
+  }
+}

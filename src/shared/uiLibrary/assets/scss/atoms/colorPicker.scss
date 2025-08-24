@@ -1,0 +1,196 @@
+@use "../foundation/all" as *;
+
+/***************************************
+* Input field styling used in color picker
+***************************************/
+@mixin color-picker-input-field-style {
+  padding: 0px 6px !important;
+  font-size: 13px !important;
+  height: 32px !important;
+  border: 1px solid $sds-color-border;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  color: $sds-color-text-secondary;
+  box-shadow: 0px -1.1px 0px 0px rgba(0, 0, 0, 0.3019607843) inset, 0px 1px 0px 0px rgba(0, 0, 0, 0.0784313725);
+  &:focus {
+    outline: none;
+    border-color: $sds-color-border-focus;
+  }
+}
+
+/******************************
+* Color Picker main container
+*******************************/
+.color-picker {
+  @include flexbox(_, _, _);
+  column-gap: 0.5rem;
+  flex-wrap: wrap;
+  user-select: none;
+  max-width: 224px;
+
+  /***********************************
+  * Color square area for Saturation/Brightness
+  ***********************************/
+  .main-color {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    touch-action: none;
+    user-select: none;
+    background: none;
+    /* We'll use layered divs for gradients */
+  }
+  // Optional background for dynamic HSL (if needed)
+  .color-background {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background-color: hsl(300, 100%, 50%); /* default hue */
+    pointer-events: none;
+  }
+
+  // White gradient overlay for left-to-right fade
+  .white-gradient {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(to right, $sds-color-bg-surface, rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
+  // Black gradient overlay for bottom-to-top fade
+  .black-gradient {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    background: linear-gradient(to top, #000, rgba(0, 0, 0, 0));
+    pointer-events: none;
+  }
+  /***********************************
+  * Dragger (circular handle for SB/Hue/Alpha)
+  ***********************************/
+  .dragger {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: transparent;
+    border-radius: 50%;
+    border: 3px solid $sds-color-bg-surface;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    will-change: transform, left, top;
+    transition: box-shadow 0.2s ease;
+  }
+  // Hover effect for dragger handle
+  .dragger:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  }
+  /***********************************
+  * Sliders (Hue and Alpha)
+  ***********************************/
+  .slider {
+    width: 22px;
+    height: 160px;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    touch-action: none;
+    border: 1px solid $sds-color-border;
+  }
+  // Hue slider with full rainbow gradient
+  .hue {
+    background: linear-gradient(to top, red, yellow, lime, cyan, blue, magenta, red);
+  }
+  // Default alpha slider (can be overridden dynamically)
+  .alpha {
+    background-image: linear-gradient(to top, rgba(255, 0, 0, 0) 0%, rgba(255, 0, 0, 1) 100%);
+  }
+  // Center the dragger horizontally for vertical sliders
+  .slider .dragger {
+    left: 50%;
+  }
+
+  /***********************************
+  * Color input field group (Hex, RGB, etc.)
+  ***********************************/
+  &--color-field--group {
+    flex-basis: 100%;
+    margin-top: 0.5rem;
+    @include flexbox(_, _, $space-40, column);
+
+    input {
+      @include color-picker-input-field-style();
+    }
+  }
+  /***********************************
+  * Color value text display (optional)
+  ***********************************/
+  .color-values {
+    flex-basis: 100%;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+
+    p {
+      margin: 0 0 0.3rem 0;
+    }
+  }
+
+  /********************************
+  * Gradient stops group styling
+  *********************************/
+  &--stops-group {
+    @include flexbox(start, center, $space-40);
+  }
+  // Input field for color value (e.g., rgba(...))
+  &--stops-item {
+    @include color-picker-input-field-style();
+    text-align: center;
+  }
+
+  // Input field for position (e.g., 50%)
+  &--stops-ratio {
+    width: 50px !important;
+    padding: 3px !important;
+    text-align: center !important;
+    font-size: 13px !important;
+    height: 32px !important;
+  }
+
+  // Close/remove button for a gradient stop
+  &--stops-close {
+    @include flexbox(center, center);
+    width: 52px;
+    padding: 0px !important;
+
+    @include laptop {
+      cursor: pointer;
+    }
+  }
+
+  /**********************************
+  * Color picker add and reset buttons
+  **********************************/
+
+  &--add-reset--button {
+    width: 100%;
+    @include flexbox(_, _, $space-30, column);
+    margin-top: $space-50;
+  }
+  // Add Gradient Stop button wrapper
+  &--gradient-stop-button,
+    // Reset button wrapper
+  &--reset-button {
+    width: 100%;
+    & button {
+      width: 100%;
+      @include laptop {
+        cursor: pointer;
+      }
+    }
+  }
+}

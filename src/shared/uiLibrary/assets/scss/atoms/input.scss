@@ -1,0 +1,117 @@
+@use "../foundation/all" as *;
+@mixin common--suffix-style {
+  border: none;
+  height: 100%;
+  position: absolute;
+  background: transparent;
+  top: 50%;
+  transform: translateY(-50%);
+  // pointer-events: none;
+  white-space: nowrap;
+  @include flexbox(center, center);
+}
+
+.input {
+  /****************************
+  * Label and action button
+  *****************************/
+  width: 100%;
+  &--label {
+    @include flexbox(space-between, center);
+    margin-bottom: 4px;
+  }
+  /****************************
+  * Input
+  *****************************/
+  &--field-wrapper {
+    position: relative;
+    width: 100%;
+    & .password-toggle {
+      right: 0;
+      top: 0;
+      width: 36px;
+      border-radius: 0px 8px 8px 0px;
+      @include common--suffix-style();
+      @include laptop {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &--field {
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    border: 1px solid $sds-color-border;
+
+    color: $sds-color-text-dark;
+    background-color: transparent;
+
+    @include font(13px, $font-weight-regular);
+
+    &:focus {
+      outline: 2px solid $sds-color-border-focus;
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+    &.input--disabled,
+    &.input--readonly {
+      background-color: $black-s4;
+      border-color: #d2d5d8;
+      opacity: 0.4;
+    }
+    &::placeholder {
+      @include font(13px, $font-weight-regular);
+      color: $black-s13;
+    }
+
+    @include generate-input-error-message(input);
+  }
+  &--error-message {
+    margin-top: 3px;
+  }
+  /****************************
+  * size
+  *****************************/
+  @include generate-default-input-heights(input);
+  /****************************
+  * help Text
+  *****************************/
+  &--help-text {
+    margin-top: 3px;
+  }
+
+  /****************************
+  * Prefix
+  *****************************/
+  &--prefix,
+  &--search {
+    left: 0;
+    padding: 0px 5px 0 8px;
+    border-radius: 8px 0px 0px 8px;
+    pointer-events: none;
+    @include common--suffix-style();
+  }
+  &--prefix-separator {
+    border-right: 1px solid $sds-color-border;
+  }
+  /****************************
+  * Suffix
+  *****************************/
+  &--suffix {
+    right: 0;
+    padding: 0px 5px;
+    border-radius: 0px 8px 8px 0px;
+    @include common--suffix-style();
+  }
+  &--suffix-separator {
+    border-left: 1px solid $sds-color-border;
+  }
+  /****************************
+  * password hide/show
+  *****************************/
+  @include generate-responsive-input-heights(input);
+}

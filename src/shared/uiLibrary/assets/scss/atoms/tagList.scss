@@ -1,0 +1,5 @@
+@use "../foundation/all" as *;
+.tag--list {
+  @include flexbox(_, center, 10px);
+  flex-wrap: wrap;
+}

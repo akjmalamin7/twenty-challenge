@@ -1,0 +1,66 @@
+@use "../foundation/all" as *;
+.otp {
+  display: block;
+  width: 100%;
+
+  &--label {
+    margin-bottom: 4px;
+  }
+  &--label-text {
+    @include flexbox(space-between, center);
+  }
+  &--field-box {
+    position: relative;
+    @include generate-input-size(otp);
+  }
+  &--field {
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    border-radius: 8px;
+    border: 1px solid $sds-color-border;
+
+    color: $sds-color-text-dark;
+    background-color: transparent;
+    font-family: $sds-body-font-family;
+
+    padding-left: 50px;
+    @include font(13px, $font-weight-regular);
+    letter-spacing: 3px;
+
+    &:focus {
+      outline: 2px solid $sds-color-border-focus;
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+    &.otp--field-disabled,
+    &.otp--field-readonly {
+      background-color: $black-s4;
+      border-color: #d2d5d8;
+      opacity: 0.4;
+    }
+    &::placeholder {
+      @include font(13px, $font-weight-regular);
+      color: $black-s13;
+    }
+    @include generate-input-error-message(otp);
+  }
+  &--help-message {
+    margin-top: 4px;
+  }
+  &--error-message {
+    margin-top: 4px;
+  }
+
+  &--field-prefix {
+    width: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 1px solid $sds-color-border;
+    @include flexbox(center, center);
+    @include generate-input-size(otp);
+  }
+}

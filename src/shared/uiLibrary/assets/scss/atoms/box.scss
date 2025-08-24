@@ -1,0 +1,20 @@
+@use "../foundation/all" as *;
+
+.box {
+  box-sizing: border-box;
+  @include generate-bg();
+  @include generate-padding();
+  @include generate-shadow();
+  /* flex */
+  @include generate-flex-order();
+  /* position */
+  @include generate-position();
+  @include generate-position-gap-property();
+  /* border */
+  @include generate-radius();
+  @include generate-border-color();
+  @include generate-border-style();
+  @include generate-border-width();
+  @include generate-overflow();
+  @include generate-border();
+}

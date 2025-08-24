@@ -1,0 +1,101 @@
+@use "../foundation/all" as *;
+.checkbox {
+  /*************************
+   * Layout
+   *************************/
+  @include flexbox(_, start, 10px);
+
+  /*************************
+   * Label Positioning
+   *************************/
+  &.checkbox--label-position--center {
+    align-items: center;
+  }
+
+  /*************************
+   * Wrapper around field and icon
+   *************************/
+  &--field-wrapper {
+    @include flexbox(_, center);
+    position: relative;
+
+    @include laptop {
+      cursor: pointer;
+    }
+  }
+
+  /*************************
+   * Checkbox field
+   *************************/
+  &--field {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    vertical-align: middle;
+    border-radius: 3px;
+    border: 1px solid $sds-color-border;
+    background-color: $sds-color-bg-surface;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+
+    &:checked + .checkbox--checkmark-icon {
+      opacity: 1;
+    }
+
+    @include laptop {
+      cursor: pointer;
+    }
+  }
+  /*************************
+   * Check mark icon
+   *************************/
+  & .checkbox--checkmark-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $sds-color-bg-surface;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+
+    .checkbox--checkmark-svg {
+      width: 13px;
+      height: 11px;
+    }
+  }
+
+  /*************************
+   * Label Container
+   *************************/
+  & .label-container {
+    width: 100%;
+    @include laptop {
+      cursor: pointer;
+    }
+  }
+  & label {
+    @include laptop {
+      cursor: pointer;
+    }
+  }
+
+  /*************************
+   * Disabled State
+   *************************/
+  &.checkbox--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  /*************************
+   * Checkbox Variant Colors
+   *************************/
+  @include generate-checkbox-color();
+}

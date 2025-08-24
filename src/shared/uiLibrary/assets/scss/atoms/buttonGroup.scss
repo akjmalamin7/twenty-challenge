@@ -1,0 +1,28 @@
+@use "../foundation/all" as *;
+$button-alignment: (
+  start: start,
+  center: center,
+  end: end,
+  between: space-between,
+);
+@mixin generate-buttons-alignment {
+  @each $key, $value in $button-alignment {
+    &.buttons--#{$key} {
+      justify-content: $value;
+    }
+  }
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $button-alignment {
+        &.#{$prefix}\:buttons--#{"" + $key} {
+          justify-content: $value;
+        }
+      }
+    }
+  }
+}
+.buttons {
+  @include flexbox(_, center, 10px);
+  flex-wrap: wrap;
+  @include generate-buttons-alignment();
+}

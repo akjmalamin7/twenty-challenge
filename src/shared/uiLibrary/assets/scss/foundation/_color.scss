@@ -1,0 +1,451 @@
+/*********************************
+* TABLE OF CONTENT
+**********************************/
+
+/*********************************
+**********************************
+**** - ✅ IMPORT ESSENTIAL FILE
+**** - ✅ BACKGROUND COLOR MAP
+**** - ✅ SOPPIYA ICON COLOR MAP
+**** - ✅ TEXT COLOR
+**** - ✅ TEXT COLOR MAP
+**** - ✅ ICON COLOR
+**** - ✅ BORDER COLOR
+**** - ✅ SPECIAL COLOR
+**** - ✅ BUTTON COLOR MAP
+**** - ✅ BADGE COLOR MAP
+**** - ✅ TAG COLOR MAP
+***********************************
+***********************************/
+
+/*************************
+* IMPORT CSS FILES
+*************************/
+@use "./variables" as *;
+
+/*************************
+* BACKGROUND COLOR
+*************************/
+$sds-color-bg: var(--sds-color-bg, $black-s6) !default;
+$sds-color-bg-inverse: var(--sds-color-bg-inverse, $black-s15) !default;
+
+$sds-color-bg-surface: var(--sds-color-bg-surface, $black-s1) !default;
+$sds-color-bg-surface-hover: var(--sds-color-bg-surface-hover, $black-s5) !default;
+$sds-color-bg-surface-selected: var(--sds-color-bg-surface-selected, $black-s4) !default;
+$sds-color-bg-surface-secondary: var(--sds-color-bg-surface-secondary, $black-s7) !default;
+$sds-color-bg-surface-secondary-selected: var(--sds-color-bg-surface-secondary, $black-s8) !default;
+$sds-color-bg-surface-tertiary: var(--sds-color-bg-surface-tertiary, $black-s5) !default;
+
+$sds-color-bg-fill-brand: var(--sds-color-bg-fill-brand, $black-s15) !default;
+$sds-color-bg-fill-brand-hover: var(--sds-color-bg-fill-brand-hover, $black-s16) !default;
+$sds-color-bg-fill-brand-selected: var(--sds-color-bg-fill-brand-selected, $black-s15) !default;
+$sds-color-bg-fill-brand-disable: var(--sds-color-bg-fill-brand-disable, $black-s9) !default;
+
+$sds-color-bg-fill-success: var(--sds-color-bg-fill-success, $green-s3) !default;
+$sds-color-bg-fill-success-hover: var(--sds-color-bg-fill-success-hover, $green-s4) !default;
+$sds-color-bg-fill-success-selected: var(--sds-color-bg-fill-success-selected, $green-s5) !default;
+$sds-color-bg-fill-success-secondary: var(--sds-color-bg-fill-success-secondary, $green-s1) !default;
+$sds-color-bg-fill-success-secondary: var(--sds-color-bg-fill-success-secondary, $green-s1) !default;
+
+$sds-color-bg-fill-warning: var(--sds-color-bg-fill-warning, $yellow-s3) !default;
+$sds-color-bg-fill-warning-hover: var(--sds-color-bg-fill-warning-hover, $yellow-s4) !default;
+$sds-color-bg-fill-warning-selected: var(--sds-color-bg-fill-warning-selected, $yellow-s6) !default;
+$sds-color-bg-fill-warning-secondary: var(--sds-color-bg-fill-warning-secondary, $yellow-s1) !default;
+
+$sds-color-bg-fill-critical: var(--sds-color-bg-fill-critical, $red-s4) !default;
+$sds-color-bg-fill-critical-hover: var(--sds-color-bg-fill-critical-hover, $red-s5) !default;
+$sds-color-bg-fill-critical-selected: var(--sds-color-bg-fill-critical-selected, $red-s6) !default;
+$sds-color-bg-fill-critical-secondary: var(--sds-color-bg-fill-critical-secondary, $red-s1) !default;
+
+$sds-color-bg-fill-info: var(--sds-color-bg-fill-info, $teal-s3) !default;
+$sds-color-bg-fill-info-hover: var(--sds-color-bg-fill-info-hover, $teal-s4) !default;
+$sds-color-bg-fill-info-selected: var(--sds-color-bg-fill-info-selected, $teal-s5) !default;
+$sds-color-bg-fill-info-secondary: var(--sds-color-bg-fill-info-secondary, $teal-s1) !default;
+$sds-color-bg-fill-white: var(--sds-color-bg-fill-white, $black-s1);
+$sds-color-bg-fill-white-hover: var(--sds-color-bg-fill-white, $black-s5);
+$sds-color-bg-fill-white-selected: var(--sds-color-bg-fill-white, $black-s7);
+$sds-color-bg-fill-link: var(--sds-color-bg-fill-link, $blue-s1);
+$sds-color-bg-fill-link-hover: var(--sds-color-bg-fill-link-hover, $blue-s2);
+$sds-color-bg-fill-link-secondary: var(--sds-color-bg-fill-link-secondary, $blue-s4);
+
+/*************************
+* BACKGROUND COLOR MAP
+*************************/
+$bg-colors: (
+  primary: $sds-color-bg-inverse,
+  secondary: $sds-color-bg-surface-secondary,
+  tertiary: $sds-color-bg-surface-tertiary,
+  danger: $sds-color-bg-fill-critical,
+  success: $sds-color-bg-fill-success,
+  warning: $sds-color-bg-fill-warning,
+  info: $sds-color-bg-fill-info,
+  white: $sds-color-bg-surface,
+  blue: $sds-color-bg-fill-link,
+  transparent: transparent,
+);
+/*************************
+* SOPPIYA COLOR MAP
+*************************/
+$soppiya-bg-colors: (
+  primary: $sds-color-bg-inverse,
+  secondary: $black-s13,
+  tertiary: $black-s12,
+  danger: $sds-color-bg-fill-critical,
+  success: $sds-color-bg-fill-success,
+  warning: $sds-color-bg-fill-warning,
+  info: $sds-color-bg-fill-info,
+  white: $sds-color-bg-surface,
+  blue: $sds-color-bg-fill-link,
+  transparent: transparent,
+);
+/*************************
+* TEXT COLOR
+*************************/
+$sds-color-text-brand: var(--sds-color-text-brand, $black-s15) !default;
+$sds-color-text-brand-hover: var(--sds-color-text-brand-hover, $black-s16) !default;
+$sds-color-text-dark: var(--sds-color-text-dark, $black-s15) !default;
+$sds-color-text-dark-hover: var(--sds-color-text-dark-hover, $black-s16) !default;
+$sds-color-text-brand-on-bg-fill: var(--sds-color-text-brand-on-bg-fill, $black-s1) !default;
+$sds-color-text-brand-on-bg-fill-hover: var(--sds-color-text-brand-on-bg-fill-hover, $black-s7) !default;
+$sds-color-text-brand-on-bg-fill-active: var(--sds-color-text-brand-on-bg-fill-active, $black-s9) !default;
+$sds-color-text-brand-on-bg-fill-disable: var(--sds-color-text-brand-on-bg-fill-disable, $black-s10) !default;
+$sds-color-text-secondary: var(--sds-color-text-secondary, $black-s13) !default;
+$sds-color-text-secondary-hover: var(--sds-color-text-secondary-hover, $black-s14) !default;
+$sds-color-text-tertiary: var(--sds-color-text-tertiary, $black-s12) !default;
+$sds-color-text-tertiary-hover: var(--sds-color-text-tertiary-hover, $black-s13) !default;
+$sds-color-text-disable: var(--sds-color-text-disable, $black-s2) !default;
+$sds-color-text-link: var(--sds-color-text-link, $blue-s1) !default;
+$sds-color-text-link-hover: var(--sds-color-text-link-hover, $blue-s2) !default;
+$sds-color-text-link-active: var(--sds-color-text-link-active, $blue-s3) !default;
+$sds-color-text-success: var(--sds-color-text-success, $green-s6) !default;
+$sds-color-text-success-hover: var(--sds-color-text-success-hover, $green-s5) !default;
+$sds-color-text-warning: var(--sds-color-text-warning, $yellow-s3) !default;
+$sds-color-text-warning-hover: var(--sds-color-text-warning-hover, $yellow-s4) !default;
+$sds-color-text-critical: var(--sds-color-text-critical, $red-s4) !default;
+$sds-color-text-critical-hover: var(--sds-color-text-critical, $red-s5) !default;
+$sds-color-text-info: var(--sds-color-text-info, $teal-s6) !default;
+$sds-color-text-info-hover: var(--sds-color-text-info-hover, $teal-s5) !default;
+
+$sds-color-text-white: var(--sds-color-text-white, $black-s1) !default;
+$sds-color-text-white-hover: var(--sds-color-text-white-hover, $black-s15) !default;
+
+/*************************
+* TEXT COLOR MAP
+*************************/
+$text-colors: (
+  primary: $sds-color-text-dark,
+  secondary: $sds-color-text-secondary,
+  tertiary: $sds-color-text-tertiary,
+  danger: $sds-color-text-critical,
+  success: $sds-color-text-success,
+  warning: $sds-color-text-warning,
+  info: $sds-color-text-info,
+  white: $sds-color-text-white,
+  blue: $sds-color-text-link,
+);
+
+/*************************
+* ICON COLOR
+*************************/
+$sds-color-icon: var(--sds-color-icon, $black-s13) !default;
+$sds-color-icon-hover: var(--sds-color-icon-hover, $black-s15) !default;
+$sds-color-icon-active: var(--sds-color-icon-active, $black-s16) !default;
+$sds-color-icon-disable: var(--sds-color-icon-disable, $black-s10) !default;
+$sds-color-icon-secondary: var(--sds-color-icon-secondary, $black-s15) !default;
+$sds-color-icon-secondary-hover: var(--sds-color-icon-secondary-hover, $black-s16) !default;
+$sds-color-icon-secondary-active: var(--sds-color-icon-secondary-active, $black-s16) !default;
+
+/*************************
+* BORDER COLOR
+*************************/
+$sds-color-border: var(--sds-color-border, $black-s7) !default;
+$sds-color-border-hover: var(--sds-color-border-hover, $black-s9) !default;
+$sds-color-border-secondary: var(--sds-color-border-secondary, $black-s8) !default;
+$sds-color-border-focus: var(--sds-color-border-focus, $blue-s1) !default;
+$sds-color-border-disable: var(--sds-color-border-disable, $black-s9) !default;
+$sds-color-border-info: var(--sds-color-border-info, $teal-s2) !default;
+$sds-color-border-success: var(--sds-color-border-success, $green-s2) !default;
+$sds-color-border-critical: var(--sds-color-border-critical, $red-s2) !default;
+$sds-color-border-warning: var(--sds-color-border-warning, $yellow-s2) !default;
+$sds-color-border-link: var(--sds-color-border-link, $blue-s1) !default;
+
+/*************************
+* SPECIAL COLOR
+*************************/
+$sds-color-avatar-one-text-on-bg-fill: var(--sds-color-avatar-one-text-on-bg-fill, $purple-s1) !default;
+$sds-color-avatar-two-text-on-bg-fill: var(--sds-color-avatar-two-text-on-bg-fill, $green-s3) !default;
+$sds-color-avatar-three-text-on-bg-fill: var(--sds-color-avatar-three-text-on-bg-fill, $red-s3) !default;
+$sds-color-avatar-four-text-on-bg-fill: var(--sds-color-avatar-four-text-on-bg-fill, $yellow-s5) !default;
+
+/*************************
+* BUTTON COLOR MAP
+*************************/
+$button-colors: (
+  primary: (
+    fill: (
+      $sds-color-bg-inverse,
+      $sds-color-text-brand-on-bg-fill,
+      _,
+      $sds-color-bg-fill-brand-hover,
+      _,
+      $sds-color-bg-fill-brand-selected,
+    ),
+    outline: (
+      $sds-color-text-brand,
+      $sds-color-bg-inverse,
+      $sds-color-bg-fill-brand-hover,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-brand,
+      $sds-color-bg-fill-brand-hover,
+    ),
+    solid: (
+      $sds-color-text-brand,
+      $sds-color-bg-surface-secondary,
+    ),
+  ),
+  secondary: (
+    fill: (
+      $sds-color-bg-surface-secondary,
+      $sds-color-text-secondary,
+      _,
+      $sds-color-bg-surface-tertiary,
+      _,
+      $sds-color-bg-surface-secondary-selected,
+    ),
+    outline: (
+      $sds-color-text-secondary,
+      $sds-color-bg-surface-secondary,
+      $sds-color-bg-surface-tertiary,
+      $sds-color-text-secondary,
+    ),
+    plain: (
+      $sds-color-bg-surface-secondary,
+      $sds-color-bg-fill-brand-hover,
+    ),
+    solid: (
+      $sds-color-text-brand,
+      $sds-color-bg-surface-secondary,
+    ),
+  ),
+  success: (
+    fill: (
+      $sds-color-bg-fill-success,
+      $sds-color-text-white,
+      _,
+      $sds-color-bg-fill-success-hover,
+      $sds-color-text-white,
+      $sds-color-bg-fill-success-selected,
+    ),
+    outline: (
+      $sds-color-bg-fill-success,
+      $sds-color-border-success,
+      $sds-color-bg-fill-success,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-success,
+      $sds-color-text-success-hover,
+    ),
+    solid: (
+      $sds-color-bg-fill-success,
+      $sds-color-bg-fill-success-secondary,
+      $sds-color-bg-fill-success,
+    ),
+  ),
+  info: (
+    fill: (
+      $sds-color-bg-fill-info,
+      $sds-color-text-white,
+      _,
+      $sds-color-bg-fill-info-hover,
+      $sds-color-text-white,
+      $sds-color-bg-fill-info-selected,
+    ),
+    outline: (
+      $sds-color-text-info,
+      $sds-color-border-info,
+      $sds-color-bg-fill-info,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-info,
+      $sds-color-text-info-hover,
+    ),
+    solid: (
+      $sds-color-text-info,
+      $sds-color-bg-fill-info-secondary,
+      $sds-color-text-info,
+    ),
+  ),
+  warning: (
+    fill: (
+      $sds-color-bg-fill-warning,
+      $sds-color-text-white,
+      _,
+      $sds-color-bg-fill-warning-hover,
+      $sds-color-text-white,
+      $sds-color-bg-fill-warning-selected,
+    ),
+    outline: (
+      $sds-color-text-warning,
+      $sds-color-border-warning,
+      $sds-color-bg-fill-warning,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-warning,
+      $sds-color-text-warning-hover,
+    ),
+    solid: (
+      $sds-color-text-warning,
+      $sds-color-bg-fill-warning-secondary,
+      $sds-color-text-warning,
+    ),
+  ),
+  danger: (
+    fill: (
+      $sds-color-bg-fill-critical,
+      $sds-color-text-white,
+      _,
+      $sds-color-bg-fill-critical-hover,
+      $sds-color-text-white,
+      $sds-color-bg-fill-critical-selected,
+    ),
+    outline: (
+      $sds-color-text-critical,
+      $sds-color-bg-fill-critical,
+      $sds-color-bg-fill-critical,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-critical,
+      $sds-color-text-critical-hover,
+    ),
+    solid: (
+      $sds-color-text-critical,
+      $sds-color-bg-fill-critical-secondary,
+      $sds-color-text-critical-hover,
+    ),
+  ),
+  white: (
+    fill: (
+      $sds-color-bg-fill-white,
+      $sds-color-text-dark,
+      $sds-color-border-hover,
+      $sds-color-bg-fill-white-hover,
+      $sds-color-text-dark,
+      $sds-color-bg-fill-white-selected,
+      unset,
+    ),
+    outline: (
+      $sds-color-text-brand,
+      $sds-color-bg-inverse,
+      $sds-color-bg-fill-brand-hover,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-brand,
+      $sds-color-bg-fill-brand-hover,
+    ),
+    solid: (
+      $sds-color-text-brand,
+      $sds-color-bg-surface-secondary,
+    ),
+  ),
+  blue: (
+    fill: (
+      $sds-color-bg-fill-link,
+      $sds-color-text-white,
+      $sds-color-border-hover,
+      $sds-color-bg-fill-link-hover,
+      $sds-color-text-white,
+      $sds-color-text-link-active,
+    ),
+    outline: (
+      $sds-color-text-link,
+      $sds-color-border-link,
+      $sds-color-bg-fill-link,
+      $sds-color-text-white,
+    ),
+    plain: (
+      $sds-color-text-link,
+      $sds-color-text-link-hover,
+    ),
+    solid: (
+      $sds-color-text-link,
+      $sds-color-bg-fill-link-secondary,
+      $sds-color-text-link,
+    ),
+  ),
+);
+
+/*************************
+* BADGE COLOR MAP
+*************************/
+$badge-colors: (
+  neutral: (
+    bg: $sds-color-bg-surface-secondary,
+    border: $sds-color-border-disable,
+    text: $sds-color-text-secondary,
+  ),
+  info: (
+    bg: $sds-color-bg-fill-info-secondary,
+    border: $sds-color-border-info,
+    text: $sds-color-text-info,
+  ),
+  success: (
+    bg: $sds-color-bg-fill-success-secondary,
+    border: $sds-color-border-success,
+    text: $sds-color-text-success,
+  ),
+  warning: (
+    bg: $sds-color-bg-fill-warning-secondary,
+    border: $sds-color-border-warning,
+    text: $sds-color-text-warning,
+  ),
+  danger: (
+    bg: $sds-color-bg-fill-critical-secondary,
+    border: $sds-color-border-critical,
+    text: $sds-color-text-critical,
+  ),
+);
+
+/*************************
+* TAG COLOR MAP
+*************************/
+$tag-colors: (
+  primary: (
+    bg: $sds-color-bg-inverse,
+    text: $sds-color-text-brand-on-bg-fill,
+  ),
+  secondary: (
+    bg: $sds-color-bg-surface-secondary,
+    text: $sds-color-text-secondary,
+  ),
+  success: (
+    bg: $sds-color-bg-fill-success,
+    text: $sds-color-text-white,
+  ),
+  info: (
+    bg: $sds-color-bg-fill-info,
+    text: $sds-color-text-white,
+  ),
+  warning: (
+    bg: $sds-color-bg-fill-warning,
+    text: $sds-color-text-white,
+  ),
+  danger: (
+    bg: $sds-color-bg-fill-critical,
+    text: $sds-color-text-white,
+  ),
+  white: (
+    bg: $sds-color-bg-fill-white,
+    text: $sds-color-text-dark,
+  ),
+  blue: (
+    bg: $sds-color-bg-fill-link,
+    text: $sds-color-text-white,
+  ),
+);

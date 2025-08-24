@@ -1,0 +1,31 @@
+@use "../foundation/all" as *;
+
+.tag {
+  display: inline-block;
+  &--inner {
+    height: 24px;
+    background-color: $sds-color-bg-surface-secondary-selected;
+    @include flexbox(_, center, 4px);
+    padding: 0 8px;
+    border-radius: 4px;
+    & button {
+      & span {
+        width: 20px !important;
+        height: 20px !important;
+        @include flexbox(center, center);
+        border-radius: 3px !important;
+        transition: all 0.3s;
+      }
+      & svg {
+        width: 7px;
+        fill: currentColor;
+      }
+      &:hover span {
+        background-color: $sds-color-bg-surface-hover;
+      }
+    }
+    & a {
+      color: $black-s15 !important;
+    }
+  }
+}

@@ -1,0 +1,103 @@
+/*********************************
+* TABLE OF CONTENT
+**********************************/
+
+/*********************************
+**********************************
+**** - ✅ IMPORT ESSENTIAL FILE
+**** - ✅ FONT FAMILY
+**** - ✅ HEADING TEXT STYLE
+**** - ✅ BODY TEXT STYLE
+***********************************
+***********************************/
+
+/*************************
+* IMPORT CSS FILES
+*************************/
+@use "./variables" as *;
+
+/*************************
+* FONT FAMILY
+*************************/
+$sds-body-font-family: var(--sds-body-font-family, $font-family-inter) !default;
+
+/*************************
+* HEADING TEXT SIZES
+*************************/
+
+/* XSM */
+
+$sds-text-heading-xsm-font-size: var(--sds-text-heading-xsm-font-size, $font-size-03) !default;
+$sds-text-heading-xsm-line-height: var(--sds-text-heading-xsm-line-height, $line-height-03) !default;
+$sds-text-heading-xsm-font-weight: var(--sds-text-heading-xsm-font-weight, $font-weight-semibold) !default;
+$sds-text-heading-xsm-font-family: var(--sds-text-heading-xsm-font-family, $font-family-inter) !default;
+
+/*  SM  */
+
+$sds-text-heading-sm-font-size: var(--sds-text-heading-sm-font-size, $font-size-04) !default;
+$sds-text-heading-sm-line-height: var(--sds-text-heading-sm-line-height, $line-height-03) !default;
+$sds-text-heading-sm-font-weight: var(--sds-text-heading-sm-font-weight, $font-weight-semibold) !default;
+$sds-text-heading-sm-font-family: var(--sds-text-heading-sm-font-family, $font-family-inter) !default;
+
+/* MD */
+
+$sds-text-heading-md-font-size: var(--sds-text-heading-md-font-size, $font-size-05) !default;
+$sds-text-heading-md-line-height: var(--sds-text-heading-md-line-height, $line-height-04) !default;
+$sds-text-heading-md-font-weight: var(--sds-text-heading-md-font-weight, $font-weight-semibold) !default;
+$sds-text-heading-md-font-family: var(--sds-text-heading-md-font-family, $font-family-inter) !default;
+
+/*  LG */
+
+$sds-text-heading-lg-font-size: var(--sds-text-heading-lg-font-size, $font-size-06) !default;
+$sds-text-heading-lg-line-height: var(--sds-text-heading-lg-line-height, $line-height-05) !default;
+$sds-text-heading-lg-font-weight: var(--sds-text-heading-lg-font-weight, $font-weight-semibold) !default;
+$sds-text-heading-lg-font-family: var(--sds-text-heading-lg-font-family, $font-family-inter) !default;
+
+/* XL */
+
+$sds-text-heading-xl-font-size: var(--sds-text-heading-xl-font-size, $font-size-07) !default;
+$sds-text-heading-xl-line-height: var(--sds-text-heading-xl-line-height, $line-height-06) !default;
+$sds-text-heading-xl-font-weight: var(--sds-text-heading-xl-font-weight, $font-weight-bold) !default;
+$sds-text-heading-xl-font-family: var(--sds-text-heading-xl-font-family, $font-family-inter) !default;
+
+/*  2XL */
+
+$sds-text-heading-2xl-font-size: var(--sds-text-heading-2xl-font-size, $font-size-08) !default;
+$sds-text-heading-2xl-line-height: var(--sds-text-heading-2xl-line-height, $line-height-07) !default;
+$sds-text-heading-2xl-font-weight: var(--sds-text-heading-2xl-font-weight, $font-weight-bold) !default;
+$sds-text-heading-2xl-font-family: var(--sds-text-heading-2xl-font-family, $font-family-inter) !default;
+
+/* 3XL  */
+
+$sds-text-heading-3xl-font-size: var(--sds-text-heading-3xl-font-size, $font-size-09) !default;
+$sds-text-heading-3xl-line-height: var(--sds-text-heading-3xl-line-height, $line-height-08) !default;
+$sds-text-heading-3xl-font-weight: var(--sds-text-heading-3xl-font-weight, $font-weight-bold) !default;
+$sds-text-heading-3xl-font-family: var(--sds-text-heading-3xl-font-family, $font-family-inter) !default;
+
+/*************************
+* BODY TEXT STYLE
+*************************/
+
+/* XS  */
+$sds-text-body-xs-font-size: var(--sds-text-body-xs-font-size, $font-size-01) !default;
+$sds-text-body-xs-line-height: var(--sds-text-body-xs-line-height, $line-height-01) !default;
+$sds-text-body-xs-font-weight: var(--sds-text-body-xs-font-weight, $font-weight-regular) !default;
+$sds-text-body-xs-font-family: var(--sds-text-body-xs-font-family, $font-family-inter) !default;
+
+/* SM */
+$sds-text-body-sm-font-size: var(--sds-text-body-sm-font-size, $font-size-02) !default;
+$sds-text-body-sm-line-height: var(--sds-text-body-sm-line-height, $line-height-02) !default;
+$sds-text-body-sm-font-weight: var(--sds-text-body-sm-font-weight, $font-weight-regular) !default;
+$sds-text-body-sm-font-family: var(--sds-text-body-sm-font-family, $font-family-inter) !default;
+
+/* MD */
+$sds-text-body-md-font-size: var(--sds-text-body-md-font-size, $font-size-03) !default;
+$sds-text-body-md-line-height: var(--sds-text-body-md-line-height, $line-height-03) !default;
+$sds-text-body-md-font-weight: var(--sds-text-body-md-font-weight, $font-weight-regular) !default;
+$sds-text-body-md-font-family: var(--sds-text-body-md-font-family, $font-family-inter) !default;
+
+/* LG */
+$sds-text-body-lg-font-size: var(--sds-text-body-lg-font-size, $font-size-04) !default;
+$sds-text-body-lg-line-height: var(--sds-text-body-lg-line-height, $line-height-03) !default;
+$sds-text-body-lg-font-weight: var(--sds-text-body-lg-font-weight, $font-weight-regular) !default;
+$sds-text-body-lg-font-family: var(--sds-text-body-lg-font-family, $font-family-inter) !default;

@@ -1,0 +1,10 @@
+@use "../foundation/all" as *;
+
+.badge {
+  display: inline-block;
+  padding: $space-20 $space-50;
+  border-radius: 10px;
+  width: 100%;
+  @include text-body-sm;
+  @include generate-badge-variant();
+}

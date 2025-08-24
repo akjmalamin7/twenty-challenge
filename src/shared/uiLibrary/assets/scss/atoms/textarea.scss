@@ -1,0 +1,72 @@
+@use "../foundation/all" as *;
+.textarea {
+  width: 100%;
+
+  /****************************
+  * Label and action button
+  *****************************/
+  &--label {
+    @include flexbox(space-between, center);
+    margin-bottom: 4px;
+  }
+
+  &--field-wrapper {
+    width: 100%;
+    // & .clear {
+    //   right: 4px;
+    //   top: 8px;
+    //   width: 25px;
+    //   border: none;
+    //   position: absolute;
+    //   background: transparent;
+    //   @include flexbox(center, center);
+    // }
+    // @include tablet {
+    //   height: 110px;
+    // }
+  }
+
+  /****************************
+  * Field
+  *****************************/
+  &--field {
+    width: 100%;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    border: 1px solid #b9b3ae;
+    background-color: transparent;
+    font-family: $font-family-inter;
+    color: $black_s15;
+    @include font(13px, $font-weight-regular);
+    &:focus {
+      outline: 2px solid $blue-s1;
+      border: 1px solid transparent;
+      background-color: transparent;
+    }
+    &::placeholder {
+      @include font(13px, $font-weight-regular);
+      color: $black-s13;
+    }
+
+    &.textarea--disabled,
+    &.textarea--readonly {
+      background-color: $black-s4;
+      border-color: #d2d5d8;
+      opacity: 0.4;
+    }
+    &.textarea--resize {
+      resize: none;
+    }
+    @include generate-input-error-message(textarea);
+  }
+
+  /****************************
+  * size
+  *****************************/
+  @include generate-default-textarea-heights();
+  /****************************
+  * responsive sizes
+  *****************************/
+  @include generate-responsive-textarea-heights();
+}
