@@ -1,4 +1,4 @@
-import "@/shared/uiLibrary/assets/scss/atoms/range.scss";
+import "@/scss/atoms/range.scss";
 import classNames from "classnames";
 import { debounce } from "lodash";
 import type React from "react";
@@ -14,13 +14,12 @@ export interface RangeProps extends React.ComponentProps<'input'> {
   step?: number;
   isInputField?: boolean;
   suffix?: string;
-  suffix_width?: string;
-  layoutStyle?: "row" | "reverse";
+  inputFieldPosition?: "start" | "end";
   onOk?: (value: number) => void;
 }
 
 const Range = forwardRef<HTMLInputElement, RangeProps>((props, ref) => {
-  const { label, value = 0, min = 0, max = 100, step, isInputField, suffix, layoutStyle = "row", onOk, ...rest } = props
+  const { label, value = 0, min = 0, max = 100, step, isInputField, suffix, inputFieldPosition = "row", onOk, ...rest } = props
 
   /*************************
    * State
@@ -40,12 +39,13 @@ const Range = forwardRef<HTMLInputElement, RangeProps>((props, ref) => {
   }, [onOk]);
 
   const handleRange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { valueAsNumber } = event.target;
+    let { valueAsNumber } = event.target;
+    if (valueAsNumber > max) valueAsNumber = max;
+    if (valueAsNumber < min) valueAsNumber = min
     setRange(valueAsNumber);
     debouncedOnOk(valueAsNumber);
     // typeof onOk === "function" && onOk(valueAsNumber);
   };
-  console.log("Range value: ", value, "Range state: ", range);
 
   /*************************
    * Calculate the slider range percentage
@@ -81,7 +81,7 @@ const Range = forwardRef<HTMLInputElement, RangeProps>((props, ref) => {
       {/*************************
        * Slider + Input Field
        *************************/}
-      <div className={classNames('range--slider-layout', { [`range--layout-style-${layoutStyle}`]: layoutStyle })}>
+      <div className={classNames('range--slider-layout', { [`range--input-field--position-${inputFieldPosition}`]: inputFieldPosition })}>
         {/*************************
        *  Input Field
        *************************/}

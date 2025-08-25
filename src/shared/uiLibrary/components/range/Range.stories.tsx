@@ -20,9 +20,9 @@ const meta = {
     step: { control: "number" },
     suffix: { control: "text" },
     isInputField: { control: "boolean" },
-    layoutStyle: {
+    inputFieldPosition: {
       control: "select",
-      options: ["reverse", undefined],
+      options: ["start", "end"],
     },
     onOk: { action: "onOk triggered" },
   },

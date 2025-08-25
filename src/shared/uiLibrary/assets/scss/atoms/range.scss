@@ -1,8 +1,9 @@
 @use "../foundation/all" as *;
+
 .range {
   /*************************
-* Slider + Input Field
-*************************/
+  * Slider + Input Field
+  *************************/
 
   &--slider {
     position: relative;
@@ -10,15 +11,17 @@
     user-select: none;
     flex-grow: 1;
   }
+
   &--slider-layout {
     @include flexbox(start, center, $space-60);
-    &.range--layout-style-reverse {
+    &.range--input-field--position-end {
       @include flexbox(start, center, _, row-reverse);
     }
     .range--value-field {
       width: 100px;
     }
   }
+
   &--slider-progress {
     width: 0px;
     height: 4px;
@@ -31,6 +34,7 @@
     z-index: 1;
     pointer-events: none;
   }
+
   &--slider-field {
     -webkit-appearance: none;
     appearance: none;
@@ -41,29 +45,20 @@
     background-color: $sds-color-bg-fill-brand-disable;
     cursor: pointer;
 
+    // Hide native thumb
     &::-webkit-slider-thumb {
       -webkit-appearance: none;
       width: 15px;
       height: 15px;
-      background-color: $sds-color-bg-surface;
-      border: 2px solid $sds-color-bg-inverse;
-      border-radius: 50%;
-      position: relative;
-      z-index: 3;
-      margin-left: 1px;
-      margin-top: -1px;
+      background: transparent;
+      border: none;
     }
-    // Firefox Thumb
     &::-moz-range-thumb {
       -moz-appearance: none;
       width: 15px;
       height: 15px;
-      background-color: $sds-color-bg-surface;
-      border: 2px solid $sds-color-bg-inverse;
-      border-radius: 50%;
-      cursor: pointer;
-      position: relative;
-      z-index: 9999;
+      border: none;
+      background: transparent;
     }
     &::-moz-range-track {
       background-color: $sds-color-bg-fill-brand-disable;
@@ -76,5 +71,22 @@
       border-radius: 3px;
       z-index: 1;
     }
+  }
+
+  /*************************
+  * Custom Thumb
+  *************************/
+  &--slider-thumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background-color: $sds-color-bg-surface;
+    border: 2px solid $sds-color-bg-inverse;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none; // important so slider is draggable
+    // transition: left 0.1s linear;
   }
 }
