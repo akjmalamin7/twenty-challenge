@@ -1,8 +1,13 @@
 
 export default function Home() {
   return (
-    <div >
-      <h1>This is home page</h1>
-    </div>
+    < >
+
+      <section>
+        <div className="p-5">
+          <h1>This is home page</h1>
+        </div>
+      </section>
+    </>
   );
 }
