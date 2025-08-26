@@ -24,32 +24,27 @@ export default meta;
 type Story = StoryObj<typeof Tag>;
 
 export const Default: Story = {
-  args: {
-    variant: "default",
-    children: "Default Tag",
-  },
+  render: (args) => (
+    <Tag {...args} variant="default" children="Default Tag" />
+  )
 };
 export const RemoveAble: Story = {
-  args: {
-    variant: "removeAble",
-    children: "Remove Able Tag",
-  },
+  render: (args) => (
+    <Tag {...args} variant="removeAble" children="Remove Able Tag" />
+  )
 };
 export const Clickable: Story = {
-  args: {
-    variant: "clickAble",
-    children: "Clickable Tag",
-  },
+  render: (args) => (
+    <Tag {...args} variant="clickAble" children="Clickable Tag" />
+  )
 };
 export const WithLink: Story = {
-  args: {
-    variant: "withLink",
-    children: "With Link Tag",
-  },
+  render: (args) => (
+    <Tag {...args} variant="withLink" children="With Link Tag" />
+  )
 };
 export const RemoveAbleWithLink: Story = {
-  args: {
-    variant: "removeAbleWithLink",
-    children: "Remove Able With Link Tag",
-  },
+  render: (args) => (
+    <Tag {...args} variant="removeAbleWithLink" children="Remove Able With Link Tag" />
+  )
 };

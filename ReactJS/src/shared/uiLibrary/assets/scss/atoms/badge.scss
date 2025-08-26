@@ -4,7 +4,7 @@
   display: inline-block;
   padding: $space-20 $space-50;
   border-radius: 10px;
-  width: 100%;
+  width: max-content;
   @include text-body-sm;
   @include generate-badge-variant();
 }

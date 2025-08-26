@@ -35,7 +35,7 @@ const UserAvatar = forwardRef<HTMLDivElement, UserAvatarProps>((props, ref) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Position and placement state for dropdown menu
-  const [menuPosition, setMenuPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
+  const [menuPosition, setMenuPosition] = useState<{ top: number; left: number }>({ top: -100, left: -100 });
   const [menuPlacement, setMenuPlacement] = useState<"top" | "bottom" | "left" | "right">("bottom");
 
   const handleToggleEdit = () => {

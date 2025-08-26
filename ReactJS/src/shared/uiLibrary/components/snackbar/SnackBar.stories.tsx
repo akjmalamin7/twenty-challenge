@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { BlockStack } from "../blockStack";
+import { Button } from "../button";
 import SnackBar from "./SnackBar";
+import SnackBarProvider from "./SnackBarProvider";
+import { useSnackbar } from "./useSnackbar";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof SnackBar> = {
@@ -28,23 +32,54 @@ const meta: Meta<typeof SnackBar> = {
 export default meta;
 type Story = StoryObj<typeof SnackBar>;
 
-// 🔹 Default Snackbar
-export const Default: Story = {
-  args: {
-    content: "This is a default snackbar.",
-    background: "white",
-  },
+const ToastTester = () => {
+  const snackbar = useSnackbar();
+  const handleClick = () => {
+    snackbar.error(
+      "Network request failed"
+      //   {
+      //   duration: 4000,
+      //   action: {
+      //     content: 'Undo',
+      //     onAction: () => console.log('Undo clicked'),
+      //   },
+      // }
+    );
+  };
+
+  return <Button onClick={handleClick}>Show Toast</Button>;
 };
 
-// 🔹 Fully loaded Snackbar
+
+// 🔹 Default Snackbar
+export const Default: Story = {
+  render: (args) => (
+    <BlockStack>
+      <SnackBarProvider {...args}
+        snackbarPosition="bottom-center"
+        defaultProps={{
+          background: "white",
+          duration: 2500,
+        }}
+      >
+        <ToastTester />
+      </SnackBarProvider>
+    </BlockStack>
+  )
+};
 export const FullFeatured: Story = {
-  args: {
-    content: "Custom notification!",
-    background: "primary",
-    action: {
-      content: "Undo",
-      onAction: () => console.log("Undo clicked"),
-    },
-    onClick: () => console.log("Snackbar clicked"),
-  },
+  render: (args) => (
+    <BlockStack>
+      <SnackBarProvider {...args}
+
+        snackbarPosition="bottom-right"
+        defaultProps={{
+          background: "white",
+          duration: 2500,
+        }}
+      >
+        <ToastTester />
+      </SnackBarProvider>
+    </BlockStack>
+  )
 };

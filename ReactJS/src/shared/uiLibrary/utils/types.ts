@@ -5,6 +5,23 @@ export interface Range {
   start: string | null;
   end: string | null;
 }
+/*************************
+ * Popover
+ *************************/
+export interface EventType {
+  date?: string; // specific date
+  label: string;
+  type?: "holiday" | "birthday" | "meeting";
+  weekdays?: number[]; // 0=Sun, 1=Mon, ..., 6=Sat
+}
+export type Placement = "top" | "bottom" | "left" | "right";
+export const OppositePlacement: Record<Placement, Placement> = {
+  top: "bottom",
+  bottom: "top",
+  left: "right",
+  right: "left",
+};
+
 export interface EventType {
   date?: string; // specific date
   label: string;

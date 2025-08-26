@@ -1,10 +1,12 @@
-import "@/scss/atoms/range.scss";
+import "@/shared/uiLibrary/assets/scss/atoms/range.scss";
 import classNames from "classnames";
 import { debounce } from "lodash";
 import type React from "react";
 import { forwardRef, useEffect, useMemo, useState } from "react";
+import { BlockStack } from "../blockStack";
 import { Input } from "../input";
 import { Text } from "../text";
+
 
 export interface RangeProps extends React.ComponentProps<'input'> {
   label?: string;
@@ -63,9 +65,10 @@ const Range = forwardRef<HTMLInputElement, RangeProps>((props, ref) => {
       debouncedOnOk.cancel();
     };
   }, [debouncedOnOk]);
-
+  // `calc(${sliderRange}% - 1px)`
+  const thumbPosition = sliderRange === 100 ? `calc(${sliderRange}% - 9px)` : `calc(${sliderRange}% - 1px)`
   return (
-    <div className="range">
+    <BlockStack className="range" gapY={30}>
       {/*************************
        * Label
        *************************/}
@@ -116,7 +119,7 @@ const Range = forwardRef<HTMLInputElement, RangeProps>((props, ref) => {
           />
           <div
             className='range--slider-thumb'
-            style={{ left: `calc(${sliderRange}% - 1px)` }}
+            style={{ left: thumbPosition }}
           ></div>
           <div
             className='range--slider-progress'
@@ -124,7 +127,7 @@ const Range = forwardRef<HTMLInputElement, RangeProps>((props, ref) => {
           ></div>
         </div>
       </div>
-    </div>
+    </BlockStack>
   )
 })
 export default Range;

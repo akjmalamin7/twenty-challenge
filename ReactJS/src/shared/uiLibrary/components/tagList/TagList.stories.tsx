@@ -24,15 +24,13 @@ export default meta;
 type Story = StoryObj<typeof TagList>;
 
 export const Default: Story = {
-  args: {
-    children: (
-      <>
-        <Tag>Tag 1</Tag>
-        <Tag>Tag 2</Tag>
-        <Tag>Tag 3</Tag>
-        <Tag>Tag 4</Tag>
-        <Tag>Tag 5</Tag>
-      </>
-    ),
-  },
+  render: (args) => (
+    <TagList {...args}>
+      <Tag>Tag 1</Tag>
+      <Tag>Tag 2</Tag>
+      <Tag>Tag 3</Tag>
+      <Tag>Tag 4</Tag>
+      <Tag>Tag 5</Tag>
+    </TagList>
+  )
 };

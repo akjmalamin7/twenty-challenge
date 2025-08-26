@@ -5,6 +5,7 @@ import {
   type OverflowProps,
   type Responsive,
   type ResponsiveRadiusProps,
+  type ResponsiveRadiusSideProps,
   type ResponsiveShadowProps,
   type SpaceProps,
 } from "@/shared/uiLibrary/utils/types";
@@ -163,9 +164,6 @@ export function generateMarginPaddingRadius(
  * Radius Class Generator
  *************************/
 
-export type ResponsiveRadiusSideProps =
-  | ResponsiveRadiusProps
-  | Partial<Record<"tl" | "tr" | "bl" | "br", ResponsiveRadiusProps>>;
 
 const radiusBreakpoints: Breakpoint[] = ["xs", "sm", "md", "lg", "xl"];
 

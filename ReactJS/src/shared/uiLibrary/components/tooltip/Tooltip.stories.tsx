@@ -24,85 +24,37 @@ export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
 export const Default: Story = {
-  args: {
-    content: "This is a tooltip",
-    children: <Button size="sm">Hover Me</Button>,
-  },
+  render: (args) => (
+    <Tooltip {...args} content="Learn more"> <Button size="sm">Hover Me</Button></Tooltip>
+  )
 };
 
 export const AutoPosition: Story = {
-  args: {
-    content: (
-      <div>
-        <p> Automatically adjusts position</p>
-      </div>
-    ),
-    hoverDelay: 1,
-    dismissOnMouseOut: true,
-    persistOnClick: true,
-    children: <Button size="sm">Hover Me</Button>,
-  },
+  render: (args) => (
+    <Tooltip {...args} hoverDelay={1} dismissOnMouseOut persistOnClick content="Automatically adjusts position"> <Button size="sm">Hover Me</Button></Tooltip>
+  )
 };
 
 export const TopPosition: Story = {
-  args: {
-    content: (
-      <div>
-        <p>Tooltip Placement Top </p>
-      </div>
-    ),
-    hoverDelay: 200,
-    dismissOnMouseOut: true,
-    persistOnClick: true,
-    children: <Button size="sm">Hover Me</Button>,
-    active: true,
-    placement: "top",
-  },
+  render: (args) => (
+    <Tooltip {...args} hoverDelay={200} dismissOnMouseOut persistOnClick active content="Tooltip Placement Top" placement="top"> <Button size="sm">Hover Me</Button></Tooltip>
+  )
 };
 
 export const BottomPosition: Story = {
-  args: {
-    content: (
-      <div>
-        <p>Tooltip Placement Bottom </p>
-      </div>
-    ),
-    hoverDelay: 200,
-    dismissOnMouseOut: true,
-    persistOnClick: true,
-    children: <Button size="sm">Hover Me</Button>,
-    active: true,
-    placement: "bottom",
-  },
+  render: (args) => (
+    <Tooltip {...args} hoverDelay={200} dismissOnMouseOut persistOnClick active content="Tooltip Placement Top" placement="bottom"> <Button size="sm">Hover Me</Button></Tooltip>
+  )
 };
 
 export const LeftPosition: Story = {
-  args: {
-    content: (
-      <div>
-        <p>Tooltip Placement Left </p>
-      </div>
-    ),
-    hoverDelay: 200,
-    dismissOnMouseOut: true,
-    persistOnClick: true,
-    children: <Button size="sm">Hover Me</Button>,
-    active: true,
-    placement: "left",
-  },
+  render: (args) => (
+    <Tooltip {...args} hoverDelay={200} dismissOnMouseOut persistOnClick active content="Tooltip Placement Top" placement="left"> <Button size="sm">Hover Me</Button></Tooltip>
+  )
 };
 export const RightPosition: Story = {
-  args: {
-    content: (
-      <div>
-        <p>Tooltip Placement Right </p>
-      </div>
-    ),
-    hoverDelay: 200,
-    dismissOnMouseOut: true,
-    persistOnClick: true,
-    children: <Button size="sm">Hover Me</Button>,
-    active: true,
-    placement: "right",
-  },
+  render: (args) => (
+    <Tooltip {...args} hoverDelay={200} dismissOnMouseOut persistOnClick active content="Tooltip Placement Top" placement="right"> <Button size="sm">Hover Me</Button></Tooltip>
+  )
 };
+

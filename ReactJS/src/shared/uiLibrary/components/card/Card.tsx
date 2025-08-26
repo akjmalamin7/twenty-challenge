@@ -8,7 +8,7 @@ import {
 import type {
   ColorProps,
   ResponsiveBackgroundColorProps,
-  ResponsiveRadiusProps,
+  ResponsiveRadiusSideProps,
   ResponsiveShadowProps,
   ResponsiveSideProps,
   ShadowProps,
@@ -21,7 +21,7 @@ export interface CardProps extends React.ComponentProps<"div"> {
   background?: ResponsiveBackgroundColorProps | ColorProps;
   padding?: ResponsiveSideProps;
   shadow?: ResponsiveShadowProps | ShadowProps;
-  radius?: ResponsiveRadiusProps;
+  radius?: ResponsiveRadiusSideProps;
 }
 
 const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
