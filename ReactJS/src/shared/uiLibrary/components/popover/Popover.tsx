@@ -12,29 +12,32 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
     children,
     placement = "bottom",
     popoverBtnClass,
-    align = "left",
+    align = "start",
     active,
   } = props;
-
   const wrapperRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
   const isControlled = active !== undefined;
+
   const [visible, setVisible] = useState<boolean>(false);
   const [position, setPosition] = useState({ top: -100, left: -100 });
   const [actualPlacement, setActualPlacement] = useState<Placement>(placement);
 
+
   /*************************
-   * Handle controlled visibility
+   * Handle countrolled visibility
    *************************/
   useEffect(() => {
     if (isControlled) setVisible(!!active);
   }, [active, isControlled]);
 
+
   const togglePersist = useCallback(() => {
     if (isControlled) return;
     setVisible((prev) => !prev);
   }, [isControlled]);
+
 
   /*************************
    * Close on outside click
@@ -54,9 +57,12 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [visible]);
 
+
+
   const hasSpace = (pos: Placement, wrapperRect: DOMRect, popoverRect: DOMRect) => {
     const vw = window.innerWidth;
     const vh = window.innerHeight;
+
     switch (pos) {
       case "top": return wrapperRect.top >= popoverRect.height + SPACING + VIEWPORT_PADDING;
       case "bottom": return vh - wrapperRect.bottom >= popoverRect.height + SPACING + VIEWPORT_PADDING;
@@ -65,7 +71,12 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
     }
   };
 
-  const getCoords = (pos: Placement, wrapperRect: DOMRect, popoverRect: DOMRect, align: AlignPopover) => {
+  const getCoords = (
+    pos: Placement,
+    wrapperRect: DOMRect,
+    popoverRect: DOMRect,
+    align: AlignPopover
+  ) => {
     const vw = window.innerWidth;
 
     switch (pos) {
@@ -73,39 +84,56 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
       case "bottom": {
         let left: number;
 
-        if (align === "right") {
-          // align right edge of popover with right edge of activator
+        console.log(`left: ${wrapperRect.right - popoverRect.width + window.scrollX} ${popoverRect.width}`)
+        if (align === "end") {
+          // align right edge of popover with right edge of activator (button)
           left = wrapperRect.right - popoverRect.width + window.scrollX;
-          // prevent overflow to left
-          if (left < VIEWPORT_PADDING) left = wrapperRect.left + window.scrollX;
+
+          // যদি left side এ কেটে যায়, তখন fallback করবে left থেকে
+          if (left < VIEWPORT_PADDING) {
+            left = wrapperRect.left + window.scrollX;
+          }
         } else {
-          // align left edge
+          // align left edge (default)
           left = wrapperRect.left + window.scrollX;
-          // prevent overflow to right
+
+          // যদি right side এ overflow করে, fallback করবে right থেকে
           if (left + popoverRect.width > vw - VIEWPORT_PADDING) {
-            left = vw - popoverRect.width - VIEWPORT_PADDING;
+            left = wrapperRect.right - popoverRect.width + window.scrollX;
           }
         }
 
         return {
-          top: pos === "top"
-            ? wrapperRect.top - popoverRect.height - SPACING + window.scrollY
-            : wrapperRect.bottom + SPACING + window.scrollY,
+          top:
+            pos === "top"
+              ? wrapperRect.top - popoverRect.height - SPACING + window.scrollY
+              : wrapperRect.bottom + SPACING + window.scrollY,
           left,
         };
       }
+
       case "left":
         return {
-          top: wrapperRect.top + wrapperRect.height / 2 - popoverRect.height / 2 + window.scrollY,
+          top:
+            wrapperRect.top +
+            wrapperRect.height / 2 -
+            popoverRect.height / 2 +
+            window.scrollY,
           left: wrapperRect.left - popoverRect.width - SPACING + window.scrollX,
         };
+
       case "right":
         return {
-          top: wrapperRect.top + wrapperRect.height / 2 - popoverRect.height / 2 + window.scrollY,
+          top:
+            wrapperRect.top +
+            wrapperRect.height / 2 -
+            popoverRect.height / 2 +
+            window.scrollY,
           left: wrapperRect.right + SPACING + window.scrollX,
         };
     }
   };
+
 
 
   /*************************

@@ -68,27 +68,27 @@ export const Separator: Story = {
     <BlockStack style={{ width: "300px" }}>
       <Card padding={{ py: 50 }}>
         <Listbox {...args}  >
-          <Listbox.Option size="md" separator>
+          <Listbox.Option size="xl" separator>
             <Text size="md" weight="regular" color="primary">
               Item 1
             </Text>
           </Listbox.Option>
-          <Listbox.Option size="md" isActive separator>
+          <Listbox.Option size="xl" isActive separator>
             <Text size="md" weight="regular" color="primary">
               Item 2
             </Text>
           </Listbox.Option>
-          <Listbox.Option size="md" separator>
+          <Listbox.Option size="xl" separator>
             <Text size="md" weight="regular" color="primary">
               Item 3
             </Text>
           </Listbox.Option>
-          <Listbox.Option size="md" separator>
+          <Listbox.Option size="xl" separator>
             <Text size="md" weight="regular" color="primary">
               Item 4
             </Text>
           </Listbox.Option>
-          <Listbox.Option size="md" separator>
+          <Listbox.Option size="xl" separator>
             <Text size="md" weight="regular" color="primary">
               Item 5
             </Text>

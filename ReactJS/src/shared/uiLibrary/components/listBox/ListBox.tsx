@@ -36,9 +36,9 @@ const ListBox = forwardRef<HTMLUListElement, ListBoxProps>(({ children, headerCo
 }) as ListBoxFC;
 ListBox.displayName = "Listbox";
 
-type Sizes = "xs" | "sm" | "md" | "lg";
+type Sizes = "xs" | "sm" | "md" | "lg" | "xl";
 export interface OptionProps extends React.ComponentProps<"li"> {
-  size?: { xs: Sizes; sm?: Sizes; md?: Sizes; lg?: Sizes } | Sizes;
+  size?: { xs: Sizes; sm?: Sizes; md?: Sizes; lg?: Sizes, xl: Sizes } | Sizes;
   children?: ReactNode | string;
   isActive?: boolean;
   radius?: ResponsiveRadiusSideProps | RadiusProps;

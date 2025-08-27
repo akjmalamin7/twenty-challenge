@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Placement } from "../../utils/types";
-export type AlignPopover = "left" | "right";
+export type AlignPopover = "start" | "end";
 
 export interface PopoverProps extends React.ComponentProps<'div'> {
   activator?: React.ReactNode;

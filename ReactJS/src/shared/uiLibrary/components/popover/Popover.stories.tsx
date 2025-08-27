@@ -26,10 +26,155 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof Popover>;
+
 export const Default: Story = {
   render: (args) => (
-    <InlineStack justifyContent="center">
-      <Popover {...args} activator={<Button>Popover</Button>} align="left">
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>}>
+        <Card padding={60}>
+          <ListBox>
+            <ListBox.Option>
+              <Text>Profile</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Account</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Admin</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Customer list</Text>
+            </ListBox.Option>
+          </ListBox>
+        </Card>
+      </Popover>
+    </InlineStack>
+  ),
+};
+export const Top: Story = {
+  render: (args) => (
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>} active placement="top">
+        <Card padding={60}>
+          <ListBox>
+            <ListBox.Option>
+              <Text>Profile</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Account</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Admin</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Customer list</Text>
+            </ListBox.Option>
+          </ListBox>
+        </Card>
+      </Popover>
+    </InlineStack>
+  ),
+};
+export const Bottom: Story = {
+  render: (args) => (
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>} active placement="bottom">
+        <Card padding={60}>
+          <ListBox>
+            <ListBox.Option>
+              <Text>Profile</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Account</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Admin</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Customer list</Text>
+            </ListBox.Option>
+          </ListBox>
+        </Card>
+      </Popover>
+    </InlineStack>
+  ),
+};
+export const Left: Story = {
+  render: (args) => (
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>} active placement="left">
+        <Card padding={60}>
+          <ListBox>
+            <ListBox.Option>
+              <Text>Profile</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Account</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Admin</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Customer list</Text>
+            </ListBox.Option>
+          </ListBox>
+        </Card>
+      </Popover>
+    </InlineStack>
+  ),
+};
+export const Right: Story = {
+  render: (args) => (
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>} active placement="right">
+        <Card padding={60}>
+          <ListBox>
+            <ListBox.Option>
+              <Text>Profile</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Account</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Admin</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Customer list</Text>
+            </ListBox.Option>
+          </ListBox>
+        </Card>
+      </Popover>
+    </InlineStack>
+  ),
+};
+export const EndeEdge: Story = {
+  render: (args) => (
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>} active placement="bottom" align="end">
+        <Card padding={60}>
+          <ListBox>
+            <ListBox.Option>
+              <Text>Profile</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Account</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Admin</Text>
+            </ListBox.Option>
+            <ListBox.Option>
+              <Text>Customer list</Text>
+            </ListBox.Option>
+          </ListBox>
+        </Card>
+      </Popover>
+    </InlineStack>
+  ),
+};
+export const StartEdge: Story = {
+  render: (args) => (
+    <InlineStack justifyContent="center" >
+      <Popover {...args} activator={<Button>Popover</Button>} active placement="bottom" align="start">
         <Card padding={60}>
           <ListBox>
             <ListBox.Option>
