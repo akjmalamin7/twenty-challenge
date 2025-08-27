@@ -55,6 +55,7 @@
 **** - ✅ SOPPIYA ICON
 **** - ✅ ORDER
 **** - ✅ DISPLAY
+**** - ✅ LISTBOX
 ***********************************
 ***********************************/
 
@@ -2229,6 +2230,27 @@ $display-maps: (
       @each $key, $value in $display-maps {
         &.#{$prefix}\:display--#{$key} {
           display: $value;
+        }
+      }
+    }
+  }
+}
+/*************************
+* LISTBOX
+*************************/
+
+@mixin generated-listbox-list-size {
+  @each $key, $value in $listbox-option-size {
+    &.listbox--option-size--#{$key} {
+      height: $value;
+    }
+  }
+
+  @each $prefix, $bp in $breakpoints-map {
+    @media (min-width: $bp) {
+      @each $key, $value in $listbox-option-size {
+        &.#{$prefix}\:listbox--option-size--#{$key} {
+          height: $value;
         }
       }
     }

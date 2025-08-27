@@ -4,25 +4,30 @@
   width: 100%;
   margin: 0;
   padding: 0;
-  & .listbox--option {
-    height: 32px;
+  @include flexbox(_, center, _, column);
+  &--option {
     padding: 0 8px;
-    border-radius: 6px;
     width: 100%;
     box-sizing: border-box;
+    border-bottom: 1px solid transparent;
+
+    @include flexbox(_, center);
     &.active {
       background-color: $sds-color-bg-surface-tertiary;
     }
     &:hover {
       background-color: $sds-color-bg-surface-tertiary;
     }
-    @include flexbox(_, center);
-  }
-  @include flexbox(_, center, 4px, column);
-}
-
-.listbox--option {
-  @include laptop {
-    cursor: pointer;
+    &.list--option-separator {
+      border-bottom: 1px solid rgba(226, 232, 240, 1);
+    }
+    &:last-child {
+      border-bottom: 1px solid transparent;
+    }
+    @include generate-radius();
+    @include generated-listbox-list-size();
+    @include laptop {
+      cursor: pointer;
+    }
   }
 }

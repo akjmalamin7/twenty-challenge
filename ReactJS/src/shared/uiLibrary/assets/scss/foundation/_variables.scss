@@ -29,6 +29,7 @@
 **** - ✅ SHADOW
 **** - ✅ DIVIDER 
 **** - ✅ SNACKBAR 
+**** - ✅ LIST BOX 
 ***********************************
 ***********************************/
 
@@ -828,3 +829,12 @@ $divider-map: (
   * SNACKBAR
 *************************/
 $snackbar-position: bottom-left, bottom-center, bottom-right, top-left, top-center, top-right;
+/*************************
+  * LIST BOX
+*************************/
+$listbox-option-size: (
+  xs: 32px,
+  sm: 34px,
+  md: 36px,
+  lg: 40px,
+);

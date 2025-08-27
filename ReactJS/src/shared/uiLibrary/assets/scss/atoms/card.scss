@@ -2,6 +2,8 @@
 .card {
   background: $black-s1;
   width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(226, 232, 240, 0.8);
   @include generate-padding();
   @include generate-shadow();
   @include generate-radius();
