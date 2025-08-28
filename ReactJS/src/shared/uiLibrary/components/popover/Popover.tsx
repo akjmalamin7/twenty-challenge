@@ -26,7 +26,7 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
 
 
   /*************************
-   * Handle countrolled visibility
+   * Handle controlled visibility
    *************************/
   useEffect(() => {
     if (isControlled) setVisible(!!active);
@@ -86,18 +86,13 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
 
         console.log(`left: ${wrapperRect.right - popoverRect.width + window.scrollX} ${popoverRect.width}`)
         if (align === "end") {
-          // align right edge of popover with right edge of activator (button)
           left = wrapperRect.right - popoverRect.width + window.scrollX;
 
-          // যদি left side এ কেটে যায়, তখন fallback করবে left থেকে
           if (left < VIEWPORT_PADDING) {
             left = wrapperRect.left + window.scrollX;
           }
         } else {
-          // align left edge (default)
           left = wrapperRect.left + window.scrollX;
-
-          // যদি right side এ overflow করে, fallback করবে right থেকে
           if (left + popoverRect.width > vw - VIEWPORT_PADDING) {
             left = wrapperRect.right - popoverRect.width + window.scrollX;
           }
@@ -166,7 +161,7 @@ const Popover = forwardRef<HTMLDivElement, PopoverProps>((props) => {
     const coords = getCoords(finalPlacement, wrapperRect, popoverRect, align);
     setActualPlacement(finalPlacement);
     setPosition({ top: coords.top, left: coords.left });
-  }, [placement]);
+  }, [align, placement]);
 
   useEffect(() => {
     if (!visible) return;
