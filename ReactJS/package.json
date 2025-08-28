@@ -12,13 +12,16 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
     "@tailwindcss/vite": "^4.1.12",
     "@uidotdev/usehooks": "^2.4.1",
     "classnames": "^2.5.1",
     "lodash": "^4.17.21",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "tailwindcss": "^4.1.12"
+    "react-hook-form": "^7.62.0",
+    "tailwindcss": "^4.1.12",
+    "yup": "^1.7.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "4.1.1",

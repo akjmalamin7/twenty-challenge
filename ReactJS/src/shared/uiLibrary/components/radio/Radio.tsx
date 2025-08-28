@@ -15,7 +15,7 @@ export interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Radio = forwardRef<HTMLInputElement, Props>(
-  ({ label, labelPosition, variant, name, disabled = false, id, checked, onChange, value, ...rest }, ref) => {
+  ({ label, labelPosition = "center", variant = "primary", name, disabled = false, id, checked, onChange, value, ...rest }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const autoId = useId();
     const inputId = id || autoId;
