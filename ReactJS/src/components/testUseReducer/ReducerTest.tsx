@@ -148,6 +148,7 @@ const ReducerTest = () => {
               onClose={handleModal}
               title="Books"
               buttons={<Button onClick={handleModal}>Cancel</Button>}
+              size="xs"
             >
               <Text>{state.message}</Text>
             </Modal>
