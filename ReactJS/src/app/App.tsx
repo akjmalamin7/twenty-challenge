@@ -1,9 +1,10 @@
-import { DemoForm } from "@/pages";
+import { ReducerTest } from "@/components";
 
 const App = () => {
+
   return (
     <>
-      <DemoForm />
+      <ReducerTest />
     </>
   );
 };

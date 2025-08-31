@@ -1,9 +1,10 @@
 interface Props {
   children?: React.ReactNode;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
+  className?: string;
 }
 
-const Container = ({ children, size = "xl" }: Props) => {
+const Container = ({ children, size = "xl", className }: Props) => {
   const sizes: Record<NonNullable<Props["size"]>, string> = {
     xs: "max-w-[540px]",
     sm: "max-w-[798px]",
@@ -13,7 +14,7 @@ const Container = ({ children, size = "xl" }: Props) => {
   };
 
   return (
-    <div className={`${sizes[size]} w-full px-4 mx-auto`}>
+    <div className={`${className} ${sizes[size]} w-full px-4 mx-auto`}>
       {children}
     </div>
   );

@@ -157,7 +157,7 @@ export type BorderStyleProps =
   | "none"
   | "hidden";
 export type BooleanProps = true | false;
-export type AllowedElementsProps = "p" | "span" | "section" | "div" | "legend" | "ul" | "li" | "a";
+export type AllowedElementsProps = "p" | "span" | "section" | "div" | "legend" | "ul" | "li" | "a" | "form" | "nav";
 
 export type AllowedTextElementsProps = "p" | "span" | "strong" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "a";
 export type TextDecorationProps = "default" | "line-through" | "underline" | "overline" | "super-line";

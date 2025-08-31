@@ -10,6 +10,7 @@ export { Checkbox } from "./checkbox";
 export { ColorPicker } from "./colorPicker";
 export { Divider } from "./divider";
 export { ExceptionList } from "./exceptionList";
+export { Form } from "./form";
 export { Grid } from "./grid";
 export { InlineStack } from "./inlineStack";
 export { Input } from "./input";
@@ -37,4 +38,3 @@ export { Textarea } from "./textarea";
 export { Tooltip } from "./tooltip";
 export { UserAvatar } from "./userAvatar";
 export { VerifyStatus } from "./verifyStatus";
-
