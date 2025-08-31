@@ -4,45 +4,44 @@ import { useReducer, useState, type FormEvent } from "react";
 import { booksData, type BooksTypes } from "./booksData";
 
 // ---------------- Types ----------------
-type InitialStateTypes = {
-  books: BooksTypes[],
-  modal: boolean,
+type InitialStateType = {
+  books: BooksTypes[];
+  modal: boolean;
   message: string;
 }
-
-// ---------------- Initial State ----------------
-const initialState: InitialStateTypes = {
+const initialState: InitialStateType = {
   books: booksData,
   modal: false,
   message: ""
 }
-type StateTypes = typeof initialState;
+type StateType = typeof initialState;
 // ---------------- Actions ----------------
-type ActionTypes = { type: "ADD_BOOK", payload: { id: number, title: string, author: string } } | { type: "UPDATE_BOOK", payload: { id: number, title: string, author: string } } | { type: "DELETE_BOOK", payload: { id: number } } | { type: "TOGGLE_MODAL" }
+type ActionType = { type: "ADD_BOOK", payload: { title: string, author: string } } | { type: "UPDATE_BOOK", payload: { books: BooksTypes } } | { type: "DELETE_BOOK", payload: { id: number } } | { type: "TOGGLE_MODAL", payload: { modal: boolean } };
+
 
 // ---------------- Reducer ----------------
-const reducer = (state: StateTypes, action: ActionTypes): StateTypes => {
+const reducer = (state: StateType, action: ActionType) => {
   switch (action.type) {
     case "ADD_BOOK": {
-      const newBook = {
+      const newBooks: BooksTypes = {
         id: state.books.length + 1,
         title: action.payload.title,
         author: action.payload.author
       }
       return {
         ...state,
-        books: [...state.books, newBook],
-        modal: true,
-        message: `Book "${action.payload.title}" added successfully!`
+        books: [...state.books, newBooks],
+        modal: !state.modal,
+        message: "Book added successfully!"
       }
     }
     case "UPDATE_BOOK": {
-      const updatedBooks = state.books.map(book => book.id === action.payload.id ? { ...book, title: action.payload.title, author: action.payload.author } : book);
+      const updateBooks = state.books.map(book => book.id === action.payload.books.id ? action.payload.books : book);
       return {
         ...state,
-        books: updatedBooks,
-        modal: true,
-        message: `Book "${action.payload.title}" updated successfully!`
+        books: updateBooks,
+        modal: !state.modal,
+        message: "Book updated successfully!"
       }
     }
     case "DELETE_BOOK": {
@@ -50,20 +49,21 @@ const reducer = (state: StateTypes, action: ActionTypes): StateTypes => {
       return {
         ...state,
         books: filteredBooks,
-        modal: true,
-        message: `Book with id ${action.payload.id} deleted successfully!`
+        modal: !state.modal,
+        message: "Book deleted successfully!"
       }
     }
     case "TOGGLE_MODAL": {
       return {
         ...state,
-        modal: !state.modal
+        modal: action.payload.modal
       }
     }
     default:
       return state;
   }
 }
+
 
 // ---------------- Component ----------------
 const ReducerTest = () => {
@@ -74,13 +74,13 @@ const ReducerTest = () => {
   const handleBookSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!bookTitle) return;
-    dispatch({ type: "ADD_BOOK", payload: { id: state.books.length + 1, title: bookTitle, author: "Unknown" } });
+    dispatch({ type: "ADD_BOOK", payload: { title: bookTitle, author: "Unknown" } });
     setBookTitle("");
   };
 
   // Modal toggle
   const handleModal = () => {
-    dispatch({ type: "TOGGLE_MODAL" })
+    dispatch({ type: "TOGGLE_MODAL", payload: { modal: !state.modal } });
   };
 
   return (
