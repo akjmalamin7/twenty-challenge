@@ -16,13 +16,13 @@
 // --- Add remote modules here ---
 // src/types/federation.d.ts
 
-declare module "students/studentsModule" {
+declare module "students/StudentsModule" {
   import { ComponentType } from "react";
   const StudentsApp: ComponentType;
   export default StudentsApp;
 }
 
-declare module "teachers/teachersModule" {
+declare module "teachers/TeachersModule" {
   import { ComponentType } from "react";
   const TeachersApp: ComponentType;
   export default TeachersApp;

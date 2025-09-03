@@ -10,8 +10,8 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { hasError: boole
   }
 }
 
-const StudentsApp = React.lazy(() => import("students/studentsModule"));
-const TeachersApp = React.lazy(() => import("teachers/teachersModule"));
+const StudentsApp = React.lazy(() => import("students/StudentsModule"));
+// const TeachersApp = React.lazy(() => import("teachers/TeachersModule"));
 
 
 export default function App() {
@@ -25,11 +25,11 @@ export default function App() {
         </Suspense>
       </ErrorBoundary>
 
-      <ErrorBoundary>
+      {/* <ErrorBoundary>
         <Suspense fallback={<div>Loading Teacher Module...</div>}>
           <TeachersApp />
         </Suspense>
-      </ErrorBoundary>
+      </ErrorBoundary> */}
     </div>
   );
 }

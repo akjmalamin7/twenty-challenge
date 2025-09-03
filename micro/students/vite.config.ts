@@ -9,15 +9,12 @@ export default defineConfig({
       name: 'students',
       filename: 'remoteEntry.js',
       exposes: {
-        "./studentsModule": "./src/App.tsx"
+        "./StudentsModule": "./src/App.tsx"
       },
       shared: ["react", "react-dom"]
     })
   ],
-  server: { port: 3001, cors: true },
-  build: {
-    target: 'esnext',
-    minify: false,
-  },
+  server: { port: 3001, strictPort: true },
+  preview: { port: 3001, strictPort: true }
 })
 

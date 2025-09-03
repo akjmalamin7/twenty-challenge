@@ -4,7 +4,7 @@ function App() {
 
   return (
     <div>
-      <h1 >This is student app</h1>
+      <h1 >This is student app is updated</h1>
     </div>
   )
 }

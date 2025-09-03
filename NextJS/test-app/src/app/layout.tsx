@@ -41,6 +41,9 @@ export default function RootLayout({
                 <li>
                   <Link href={"/swr-fetch"}>Fetcher SWR</Link>
                 </li>
+                <li>
+                  <Link href={"/caching"}>Caching</Link>
+                </li>
               </ul>
             </nav>
           </div>

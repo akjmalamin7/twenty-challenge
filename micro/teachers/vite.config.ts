@@ -9,14 +9,13 @@ export default defineConfig({
       name: "teachers",
       filename: "remoteEntry.js",
       exposes: {
-        "./teachersModule": "./src/App.tsx"
+        "./TeachersModule": "./src/App.tsx"
       },
       shared: ["react", "react-dom"],
     })
   ],
   server: {
     port: 3002,
-    cors: true,
   },
   build: {
     target: 'esnext',
