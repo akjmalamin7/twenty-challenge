@@ -5,7 +5,7 @@ interface CachingLayoutProps {
 }
 export default function CachingLayout({ children }: CachingLayoutProps) {
   return (
-    <div className="max-w-[1240px] w-full mx-auto">
+    <div className="max-w-[1240px] w-full mx-auto mt-5">
       <nav className="py-2">
         <ul className="flex list-none gap-5">
           <li>

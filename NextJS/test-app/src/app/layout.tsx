@@ -28,21 +28,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="border-b border-b-gray-500">
+        <header className="border-b border-b-gray-500 mb-5">
           <div className="max-w-[1260px] w-full mx-auto ">
             <nav className="py-2">
               <ul className="flex list-none gap-5">
                 <li>
-                  <Link href={"/customer"}>Customer</Link>
+                  <Link href={"/customer"} >Customer</Link>
                 </li>
                 <li>
-                  <Link href={"/blogs"}>Blogs</Link>
+                  <Link href={"/blogs"} >Blogs</Link>
                 </li>
                 <li>
-                  <Link href={"/swr-fetch"}>Fetcher SWR</Link>
+                  <Link href={"/swr-fetch"} >Fetcher SWR</Link>
                 </li>
                 <li>
-                  <Link href={"/caching"}>Caching</Link>
+                  <Link href={"/caching"} >Caching</Link>
+                </li>
+                <li>
+                  <Link href={"/params-query"} >Params</Link>
                 </li>
               </ul>
             </nav>
