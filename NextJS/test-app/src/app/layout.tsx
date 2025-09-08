@@ -49,6 +49,9 @@ export default function RootLayout({
                   <li>
                     <Link href={"/params-query"}>Params</Link>
                   </li>
+                  <li>
+                    <Link href={"/parallel-dashboard"}>Parallel Dashboard</Link>
+                  </li>
                 </ul>
               </nav>
             </div>
