@@ -1,2 +1,3 @@
-export { AuthContext, type AuthContextType, type UserTypes } from "./types";
+
+export { type AuthContextType, type UserTypes } from "./types";
 
