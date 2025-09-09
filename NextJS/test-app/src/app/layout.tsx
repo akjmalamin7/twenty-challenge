@@ -52,6 +52,9 @@ export default function RootLayout({
                   <li>
                     <Link href={"/parallel-dashboard"}>Parallel Dashboard</Link>
                   </li>
+                  <li>
+                    <Link href={"/self"}>Self</Link>
+                  </li>
                 </ul>
               </nav>
             </div>
