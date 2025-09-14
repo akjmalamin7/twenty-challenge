@@ -20,12 +20,14 @@ const InfiniteScroll = () => {
       }
       console.log(data)
     }
+
     const onIntersection = (items) => {
       const loaderItem = items[0];
       if (loaderItem.isIntersecting && hasMore) {
         fetchProducts()
       }
     }
+
     const observer = new IntersectionObserver(onIntersection);
     if (observer && loaderRef.current) {
       observer.observe(loaderRef.current)
@@ -34,6 +36,7 @@ const InfiniteScroll = () => {
     return () => {
       if (observer) observer.disconnect();
     }
+
   }, [hasMore, page])
   return (
     <div>
