@@ -1,9 +1,9 @@
-import PuttingAll from "../components/putting-all/puttingAll";
+import InfiniteScroll from "../components/infinite-scroll/infiniteScroll";
 
 const Page = () => {
   return (
     <>
-      <PuttingAll />
+      <InfiniteScroll />
     </>
   );
 };
