@@ -1,9 +1,9 @@
-import Page from "../pages";
+import BrandLink from "@/pages/brand-link";
 
 const App = () => {
   return (
     <>
-      <Page />
+      <BrandLink />
     </>
   );
 };
