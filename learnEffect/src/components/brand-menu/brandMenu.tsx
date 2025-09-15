@@ -31,7 +31,6 @@ const BrandMenu = () => {
   const handleRemoveCopy = (menu: MenuNames) => {
     setCopy(copy.filter((cp) => cp._id !== menu._id));
 
-    // ফিরিয়ে দেওয়ার সময় আগের ক্রম ধরে sort করা
     setMenus((prev) => {
       const newMenus = [...prev, menu];
       return newMenus.sort(
