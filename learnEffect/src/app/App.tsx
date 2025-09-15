@@ -1,9 +1,9 @@
-import BrandLink from "@/pages/brand-link";
+import { PaginationPage } from "@/pages/pagination-page";
 
 const App = () => {
   return (
     <>
-      <BrandLink />
+      <PaginationPage />
     </>
   );
 };
